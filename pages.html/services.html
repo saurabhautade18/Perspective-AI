@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Services - NeuralFlow AI</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* === ROOT VARIABLES === */
+        :root {
+            --primary-color: #667EEA;
+            --secondary-color: #764BA2;
+            --accent-color: #00D4AA;
+            --background-dark: #0F0F23;
+            --card-dark: #1A1A2E;
+            --text-white: #FFFFFF;
+            --text-gray: #B8BCC8;
+            --gradient-primary: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
+            --gradient-accent: linear-gradient(135deg, #00D4AA 0%, #667EEA 100%);
+            --gradient-dark: linear-gradient(135deg, #0F0F23 0%, #1A1A2E 100%);
+        }
+
+        /* === GLOBAL STYLES === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--background-dark);
+            color: var(--text-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* === ANIMATIONS === */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(102, 126, 234, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(102, 126, 234, 0.6); }
+        }
+
+        /* === NAVIGATION === */
+        .navbar {
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(102, 126, 234, 0.2);
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--text-white) !important;
+            text-decoration: none;
+        }
+
+        .navbar-brand img {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-brand:hover img {
+            transform: rotate(360deg) scale(1.1);
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--text-gray) !important;
+            font-weight: 500;
+            margin: 0 1rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--accent-color) !important;
+            transform: translateY(-2px);
+        }
+
+        .navbar-nav .nav-link.active {
+            color: var(--primary-color) !important;
+        }
+
+        .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background: var(--gradient-accent);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover::after,
+        .navbar-nav .nav-link.active::after {
+            width: 100%;
+            left: 0;
+        }
+
+        .btn-get-started {
+            background: var(--gradient-primary);
+            border: none;
+            padding: 10px 24px;
+            border-radius: 50px;
+            color: var(--text-white);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-get-started:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            color: var(--text-white);
+        }
+
+        .btn-get-started::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-get-started:hover::before {
+            left: 100%;
+        }
+
+        /* === PAGE HEADER === */
+        .page-header {
+            padding: 120px 0 80px;
+            background: var(--gradient-dark);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 70% 30%, rgba(102, 126, 234, 0.1) 0%, transparent 50%);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .page-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-subtitle {
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* === SECTIONS === */
+        .section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* === SERVICE CARDS === */
+        .service-card {
+            background: var(--card-dark);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(102, 126, 234, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 70px rgba(102, 126, 234, 0.3);
+            border-color: var(--primary-color);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-accent);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            color: var(--text-white);
+            animation: pulse 3s infinite;
+        }
+
+        .service-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-white);
+        }
+
+        .service-description {
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 2rem;
+        }
+
+        .service-features li {
+            color: var(--text-gray);
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .service-features li i {
+            color: var(--accent-color);
+            font-size: 1.1rem;
+        }
+
+        .service-pricing {
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .price-label {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-amount {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        .service-cta {
+            background: var(--gradient-primary);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            color: var(--text-white);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-align: center;
+            width: 100%;
+        }
+
+        .service-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+            color: var(--text-white);
+        }
+
+        /* === API INTEGRATION SECTION === */
+        .api-badge {
+            background: rgba(0, 212, 170, 0.2);
+            color: var(--accent-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin: 0.2rem;
+            display: inline-block;
+        }
+
+        .tech-stack {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(102, 126, 234, 0.2);
+        }
+
+        .tech-stack h6 {
+            color: var(--text-white);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        /* === FAQ SECTION === */
+        .faq-item {
+            background: var(--card-dark);
+            border-radius: 15px;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(102, 126, 234, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: var(--primary-color);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            background: rgba(102, 126, 234, 0.1);
+            border: none;
+            width: 100%;
+            text-align: left;
+            color: var(--text-white);
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: rgba(102, 126, 234, 0.2);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        /* === FOOTER === */
+        .footer {
+            background: rgba(15, 15, 35, 0.95);
+            border-top: 1px solid rgba(102, 126, 234, 0.2);
+            padding: 2rem 0 1rem;
+            text-align: center;
+        }
+
+        .footer-text {
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .service-card {
+                margin-bottom: 2rem;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- === NAVIGATION === -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand" href="index.html">
+                <img src="attached_assets/generated_images/Modern_AI_company_logo_d28193a4.png" alt="Perspective AI Logo">
+                Perspective AI
+            </a>
+            
+            <!-- Mobile Toggle -->
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Navigation Menu -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ai-tools.html">AI Tools</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pricing.html">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                
+                <!-- Get Started Button -->
+                <a href="contact.html" class="btn-get-started">
+                    Get Started
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- === PAGE HEADER === -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Our AI Services</h1>
+            <p class="page-subtitle">
+                Comprehensive AI solutions designed to transform your business operations and drive innovation
+            </p>
+        </div>
+    </section>
+
+    <!-- === AI SERVICES === -->
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="section-title">Complete AI Solutions Suite</h2>
+                    <p class="section-subtitle">
+                        From intelligent chatbots to content generation, our AI services cover every aspect of modern business automation
+                    </p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <!-- AI Text Generator -->
+                <div class="col-lg-6 mb-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-file-text"></i>
+                        </div>
+                        <h3 class="service-title">AI Text Generator</h3>
+                        <p class="service-description">
+                            Create high-quality, engaging content at scale with our advanced AI text generation service. Perfect for blogs, marketing copy, product descriptions, and technical documentation.
+                        </p>
+                        <ul class="service-features">
+                            <li><i class="bi bi-check-circle"></i> GPT-4 powered content generation</li>
+                            <li><i class="bi bi-check-circle"></i> Multiple content formats supported</li>
+                            <li><i class="bi bi-check-circle"></i> SEO-optimized text creation</li>
+                            <li><i class="bi bi-check-circle"></i> Custom tone and style settings</li>
+                            <li><i class="bi bi-check-circle"></i> Multi-language support</li>
+                        </ul>
+                        <div class="service-pricing">
+                            <div class="price-label">Starting from</div>
+                            <div class="price-amount">₹2,999/month</div>
+                        </div>
+                        <div class="tech-stack">
+                            <h6>Powered by:</h6>
+                            <span class="api-badge">OpenAI GPT-4</span>
+                            <span class="api-badge">Google Gemini</span>
+                            <span class="api-badge">FlowiseAI</span>
+                        </div>
+                        <a href="contact.html" class="service-cta mt-3">Get Started</a>
+                    </div>
+                </div>
+
+                <!-- AI Chat Bot -->
+                <div class="col-lg-6 mb-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-chat-dots"></i>
+                        </div>
+                        <h3 class="service-title">AI Chat Bot</h3>
+                        <p class="service-description">
+                            Deploy intelligent conversational AI that handles customer queries, provides support, and engages users 24/7 with human-like interactions and contextual understanding.
+                        </p>
+                        <ul class="service-features">
+                            <li><i class="bi bi-check-circle"></i> Natural language processing</li>
+                            <li><i class="bi bi-check-circle"></i> 24/7 automated customer support</li>
+                            <li><i class="bi bi-check-circle"></i> Multi-platform integration</li>
+                            <li><i class="bi bi-check-circle"></i> Context-aware conversations</li>
+                            <li><i class="bi bi-check-circle"></i> Analytics and reporting</li>
+                        </ul>
+                        <div class="service-pricing">
+                            <div class="price-label">Starting from</div>
+                            <div class="price-amount">₹4,999/month</div>
+                        </div>
+                        <div class="tech-stack">
+                            <h6>Powered by:</h6>
+                            <span class="api-badge">OpenAI Assistants</span>
+                            <span class="api-badge">Google Gemini</span>
+                            <span class="api-badge">Grok AI</span>
+                        </div>
+                        <a href="contact.html" class="service-cta mt-3">Get Started</a>
+                    </div>
+                </div>
+
+                <!-- AI Video Generator -->
+                <div class="col-lg-6 mb-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-camera-video"></i>
+                        </div>
+                        <h3 class="service-title">AI Video Generator</h3>
+                        <p class="service-description">
+                            Transform text into stunning videos using cutting-edge AI technology. Create professional marketing videos, product demos, and educational content in minutes.
+                        </p>
+                        <ul class="service-features">
+                            <li><i class="bi bi-check-circle"></i> Text-to-video conversion</li>
+                            <li><i class="bi bi-check-circle"></i> Professional video quality</li>
+                            <li><i class="bi bi-check-circle"></i> Custom branding options</li>
+                            <li><i class="bi bi-check-circle"></i> Multiple video formats</li>
+                            <li><i class="bi bi-check-circle"></i> Fast rendering and delivery</li>
+                        </ul>
+                        <div class="service-pricing">
+                            <div class="price-label">Starting from</div>
+                            <div class="price-amount">₹7,999/month</div>
+                        </div>
+                        <div class="tech-stack">
+                            <h6>Powered by:</h6>
+                            <span class="api-badge">Luma Labs AI</span>
+                            <span class="api-badge">Runway ML</span>
+                            <span class="api-badge">Pika Labs</span>
+                        </div>
+                        <a href="contact.html" class="service-cta mt-3">Get Started</a>
+                    </div>
+                </div>
+
+                <!-- AI Audio Generator -->
+                <div class="col-lg-6 mb-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-headphones"></i>
+                        </div>
+                        <h3 class="service-title">AI Audio Generator</h3>
+                        <p class="service-description">
+                            Convert text to natural-sounding speech and generate audio content for podcasts, audiobooks, voice-overs, and interactive applications with human-like voice quality.
+                        </p>
+                        <ul class="service-features">
+                            <li><i class="bi bi-check-circle"></i> Text-to-speech conversion</li>
+                            <li><i class="bi bi-check-circle"></i> Multiple voice options</li>
+                            <li><i class="bi bi-check-circle"></i> Emotion and tone control</li>
+                            <li><i class="bi bi-check-circle"></i> High-quality audio output</li>
+                            <li><i class="bi bi-check-circle"></i> Custom voice cloning</li>
+                        </ul>
+                        <div class="service-pricing">
+                            <div class="price-label">Starting from</div>
+                            <div class="price-amount">₹3,999/month</div>
+                        </div>
+                        <div class="tech-stack">
+                            <h6>Powered by:</h6>
+                            <span class="api-badge">OpenAI TTS</span>
+                            <span class="api-badge">ModelsLab</span>
+                            <span class="api-badge">ElevenLabs</span>
+                        </div>
+                        <a href="contact.html" class="service-cta mt-3">Get Started</a>
+                    </div>
+                </div>
+
+                <!-- AI Music Generator -->
+                <div class="col-lg-6 mb-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-music-note"></i>
+                        </div>
+                        <h3 class="service-title">AI Music Generator</h3>
+                        <p class="service-description">
+                            Create original music compositions and soundtracks using advanced AI algorithms. Perfect for videos, podcasts, games, and commercial projects requiring unique audio content.
+                        </p>
+                        <ul class="service-features">
+                            <li><i class="bi bi-check-circle"></i> Original music composition</li>
+                            <li><i class="bi bi-check-circle"></i> Multiple genres supported</li>
+                            <li><i class="bi bi-check-circle"></i> Customizable instruments</li>
+                            <li><i class="bi bi-check-circle"></i> Royalty-free music</li>
+                            <li><i class="bi bi-check-circle"></i> Professional audio quality</li>
+                        </ul>
+                        <div class="service-pricing">
+                            <div class="price-label">Starting from</div>
+                            <div class="price-amount">₹5,999/month</div>
+                        </div>
+                        <div class="tech-stack">
+                            <h6>Powered by:</h6>
+                            <span class="api-badge">ModelsLab Music</span>
+                            <span class="api-badge">Mubert API</span>
+                            <span class="api-badge">AIVA</span>
+                        </div>
+                        <a href="contact.html" class="service-cta mt-3">Get Started</a>
+                    </div>
+                </div>
+
+                <!-- AI Personal Assistant -->
+                <div class="col-lg-6 mb-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-person-gear"></i>
+                        </div>
+                        <h3 class="service-title">AI Personal Assistant</h3>
+                        <p class="service-description">
+                            Deploy intelligent virtual assistants that automate tasks, schedule meetings, manage workflows, and provide personalized support for enhanced productivity and efficiency.
+                        </p>
+                        <ul class="service-features">
+                            <li><i class="bi bi-check-circle"></i> Task automation and scheduling</li>
+                            <li><i class="bi bi-check-circle"></i> Calendar and email management</li>
+                            <li><i class="bi bi-check-circle"></i> Workflow optimization</li>
+                            <li><i class="bi bi-check-circle"></i> Data analysis and reporting</li>
+                            <li><i class="bi bi-check-circle"></i> Integration with business tools</li>
+                        </ul>
+                        <div class="service-pricing">
+                            <div class="price-label">Starting from</div>
+                            <div class="price-amount">₹6,999/month</div>
+                        </div>
+                        <div class="tech-stack">
+                            <h6>Powered by:</h6>
+                            <span class="api-badge">OpenAI Assistants</span>
+                            <span class="api-badge">Google Assistant</span>
+                            <span class="api-badge">Microsoft Cortana</span>
+                        </div>
+                        <a href="contact.html" class="service-cta mt-3">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === SERVICE FAQ === -->
+    <section class="section" style="background: rgba(26, 26, 46, 0.3);">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="section-title">Service FAQs</h2>
+                    <p class="section-subtitle">
+                        Common questions about our AI services and implementation
+                    </p>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="faq-item">
+                        <button class="faq-question" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                            How quickly can AI services be implemented?
+                            <i class="bi bi-plus-lg"></i>
+                        </button>
+                        <div class="collapse faq-answer" id="faq1">
+                            Most AI services can be implemented within 2-4 weeks depending on complexity. Simple solutions like chatbots can be deployed in as little as 3-5 days, while custom AI models may take 4-8 weeks for full development and integration.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                            Do you provide custom AI solutions?
+                            <i class="bi bi-plus-lg"></i>
+                        </button>
+                        <div class="collapse faq-answer" id="faq2">
+                            Yes, we specialize in custom AI solutions tailored to your specific business needs. Our team works closely with you to understand your requirements and develop bespoke AI applications that integrate seamlessly with your existing systems.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                            What kind of support do you provide after deployment?
+                            <i class="bi bi-plus-lg"></i>
+                        </button>
+                        <div class="collapse faq-answer" id="faq3">
+                            We provide comprehensive 24/7 support including monitoring, maintenance, updates, troubleshooting, and optimization. Our support packages include regular performance reviews and feature enhancements to ensure your AI solutions continue to deliver optimal results.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                            Can AI services integrate with existing business systems?
+                            <i class="bi bi-plus-lg"></i>
+                        </button>
+                        <div class="collapse faq-answer" id="faq4">
+                            Absolutely! Our AI services are designed to integrate seamlessly with popular business platforms including CRM systems, e-commerce platforms, email marketing tools, and enterprise software. We use APIs and webhooks to ensure smooth data flow and functionality.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                            What is the ROI of implementing AI services?
+                            <i class="bi bi-plus-lg"></i>
+                        </button>
+                        <div class="collapse faq-answer" id="faq5">
+                            Our clients typically see ROI within 3-6 months of implementation. Benefits include 40-60% reduction in operational costs, 75% faster response times, improved customer satisfaction, and significant time savings on repetitive tasks. We provide detailed ROI analysis for each project.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === FOOTER === -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="contact.html">Contact</a>
+                <a href="pricing.html">Pricing</a>
+            </div>
+            <div class="footer-text">
+                <p>&copy; 2025 NeuralFlow AI. All rights reserved. | Pune, Maharashtra, India</p>
+                <p>Leading AI Solutions Provider | Transforming Businesses with Artificial Intelligence</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
