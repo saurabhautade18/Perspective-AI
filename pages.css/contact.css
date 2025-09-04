@@ -1,0 +1,223 @@
+/* CONTACTS PAGE CSS */
+
+/* === ANIMATIONS === */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* === PAGE HEADER === */
+.page-header {
+    padding: 120px 0 80px;
+    background: var(--gradient-dark);
+    position: relative;
+    overflow: hidden;
+}
+
+.page-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    z-index: 2;
+}
+
+.page-subtitle {
+    text-align: center;
+    color: var(--text-gray);
+    font-size: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+/* === SECTIONS === */
+.section {
+    padding: 80px 0;
+    position: relative;
+}
+
+/* === CONTACT CARDS === */
+.contact-card {
+    background: var(--card-dark);
+    border-radius: 20px;
+    padding: 32px;
+    margin-bottom: 32px;
+    border: 1px solid rgba(102, 126, 234, 0.1);
+    transition: all 0.3s ease;
+    text-align: center;
+    height: 400px;
+}
+
+.contact-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(102, 126, 234, 0.2);
+    border-color: var(--primary-color);
+}
+
+.contact-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--gradient-accent);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    font-size: 24px;
+    color: var(--text-white);
+    animation: pulse 2s infinite;
+}
+
+.contact-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: var(--text-white);
+}
+
+.contact-info {
+    color: var(--text-gray);
+    line-height: 1.6;
+}
+
+.contact-info a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    color: var(--primary-color);
+}
+
+/* === CONTACT FORM === */
+.contact-form {
+    background: var(--card-dark);
+    border-radius: 20px;
+    padding: 40px;
+    border: 1px solid rgba(102, 126, 234, 0.1);
+}
+
+.form-group {
+    margin-bottom: 24px;
+}
+
+.form-label {
+    color: var(--text-white);
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.form-control {
+    background: rgba(102, 126, 234, 0.1);
+    border: 1px solid rgba(102, 126, 234, 0.2);
+    border-radius: 10px;
+    padding: 12px 16px;
+    color: var(--text-white);
+    font-size: 12px;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    background: rgba(102, 126, 234, 0.15);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.25);
+    color: var(--text-white);
+}
+
+.form-control::placeholder {
+    color: var(--text-gray);
+}
+
+select option {
+    background-color: #1a1a2e;
+    color: #ffffff;
+}
+
+
+.btn-submit {
+    background: var(--gradient-primary);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    color: var(--text-white);
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.btn-submit:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+}
+
+/* === MAP SECTION === */
+.map-container {
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(102, 126, 234, 0.1);
+}
+
+.map-iframe {
+    width: 100%;
+    height: 400px;
+    border: none;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 40px;
+    }
+
+    .contact-form {
+        padding: 16px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
