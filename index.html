@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perspective AI - Leading AI Solutions Provider</title>
+     <link rel="icon" href="Images\perspective-ai.png" type="image/x-icon">
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -31,8 +32,9 @@
         <div class="container">
             <!-- Logo -->
             <a class="navbar-brand" href="/index.html">
-                <img src="Images\perspective-ai.png" alt="Perspective AI Logo">
+                <img class="bim" src="Images\perspective-ai.png" alt="Perspective AI Logo style="width: 200px; height: 80px; object-fit: contain;"">
                 Perspective AI
+                
             </a>
             
             <!-- Mobile Toggle -->
@@ -65,7 +67,7 @@
                 </ul>
                 
                 <!-- Get Started Button -->
-                <a href="contact.html" class="btn-get-started">
+                <a href="pages.html\contact.html" class="btn-get-started">
                     Get Started
                 </a>
             </div>
@@ -78,16 +80,19 @@
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <div class="hero-content">
-                        <h1 class="hero-title">Transform Your Business with AI Solutions</h1>
+                        <h1 class="hero-title">
+    Transform Your Business with<br>
+     <span id="typer"></span><span class="cursor">|</span>
+  </h1>
                         <p class="hero-subtitle">
                             Unlock the power of artificial intelligence with our cutting-edge AI agents, generators, and automation tools. From image creation to intelligent chatbots, we provide complete AI solutions that drive innovation and growth.
                         </p>
                         <div class="hero-buttons">
-                            <a href="services.html" class="btn-primary-hero">
+                            <a href="pages.html\services.html" class="btn-primary-hero">
                                 <i class="bi bi-rocket-takeoff"></i>
                                 Explore Solutions
                             </a>
-                            <a href="contact.html" class="btn-secondary-hero">
+                            <a href="pages.html\contact.html" class="btn-secondary-hero">
                                 <i class="bi bi-calendar3"></i>
                                 Book Demo
                             </a>
@@ -111,7 +116,7 @@
                 <div class="col-lg-6">
                     <div class="hero-image text-center">
                         <!-- Animated AI visualization would go here -->
-                        <div class="feature-icon mx-auto" style="width: 200px; height: 200px; font-size: 4rem;">
+                        <div class="feature-icon mx-auto" style="width: 350px; height: 350px; font-size: 12rem;">
                             <i class="bi bi-robot"></i>
                     </div>
                 </div>
@@ -194,84 +199,103 @@
     </section>
 
     <!-- === OUR CORE SERVICES === -->
-    <section class="section" style="background: rgba(26, 26, 46, 0.3);">
+    <section class="section" style="background: rgba(26, 26, 46, 0.3); margin-top: -50px;">
         <div class="container">
             <div class="row">
-                <div class="col-12">
+                <div class="col-12 style="margin-top: 0px;">
                     <h2 class="section-title">Our Core AI Services</h2>
                     <p class="section-subtitle">
                         Comprehensive AI solutions designed to revolutionize your business operations
                     </p>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="bi bi-chat-dots"></i>
-                        </div>
-                        <h3 class="feature-title">AI Chat Bots</h3>
-                        <p class="feature-description">
-                            Intelligent conversational AI powered by OpenAI and Google Gemini that handles customer queries, provides support, and engages users 24/7.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="bi bi-camera-video"></i>
-                        </div>
-                        <h3 class="feature-title">AI Video Generator</h3>
-                        <p class="feature-description">
-                            Create stunning videos from text using Luma Labs AI. Perfect for marketing content, product demos, and social media campaigns.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="bi bi-file-text"></i>
-                        </div>
-                        <h3 class="feature-title">AI Text Generator</h3>
-                        <p class="feature-description">
-                            Generate high-quality content, articles, and copy using advanced language models. Perfect for content marketing and automation.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="bi bi-music-note"></i>
-                        </div>
-                        <h3 class="feature-title">AI Music Generator</h3>
-                        <p class="feature-description">
-                            Create original music and audio content using ModelsLab API. Ideal for podcasts, videos, and creative projects.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="bi bi-headphones"></i>
-                        </div>
-                        <h3 class="feature-title">AI Audio Generator</h3>
-                        <p class="feature-description">
-                            Convert text to natural-sounding speech and generate audio content using OpenAI and ModelsLab technologies.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="bi bi-person-gear"></i>
-                        </div>
-                        <h3 class="feature-title">AI Personal Assistant</h3>
-                        <p class="feature-description">
-                            Intelligent virtual assistants that automate tasks, schedule meetings, and provide personalized support for your business needs.
-                        </p>
-                    </div>
-                </div>
+            <div id="featuresCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+
+    <!-- Slide 1 -->
+    <div class="carousel-item active">
+      <div class="row">
+        <div class="col-12 col-sm-6 col-lg-4 mb-3">
+          <div class="feature-card p-3 border rounded text-center h-100">
+            <div class="feature-icon mb-2">
+              <i class="bi bi-chat-dots fs-2"></i>
             </div>
+            <h3 class="feature-title">AI Chat Bots</h3>
+            <p class="feature-description">
+              Intelligent conversational AI powered by OpenAI and Google Gemini.
+            </p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-3">
+          <div class="feature-card p-3 border rounded text-center h-100">
+            <div class="feature-icon mb-2">
+              <i class="bi bi-camera-video fs-2"></i>
+            </div>
+            <h3 class="feature-title">AI Video Generator</h3>
+            <p class="feature-description">
+              Create stunning videos from text using Luma Labs AI.
+            </p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-3">
+          <div class="feature-card p-3 border rounded text-center h-100">
+            <div class="feature-icon mb-2">
+              <i class="bi bi-file-text fs-2"></i>
+            </div>
+            <h3 class="feature-title">AI Text Generator</h3>
+            <p class="feature-description">
+              Generate high-quality content, articles, and copy using advanced language models.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="carousel-item">
+      <div class="row">
+        <div class="col-12 col-sm-6 col-lg-4 mb-3">
+          <div class="feature-card p-3 border rounded text-center h-100">
+            <div class="feature-icon mb-2">
+              <i class="bi bi-music-note fs-2"></i>
+            </div>
+            <h3 class="feature-title">AI Music Generator</h3>
+            <p class="feature-description">
+              Create original music and audio content using ModelsLab API.
+            </p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-3">
+          <div class="feature-card p-3 border rounded text-center h-100">
+            <div class="feature-icon mb-2">
+              <i class="bi bi-headphones fs-2"></i>
+            </div>
+            <h3 class="feature-title">AI Audio Generator</h3>
+            <p class="feature-description">
+              Convert text to natural-sounding speech and generate audio content.
+            </p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-4 mb-3">
+          <div class="feature-card p-3 border rounded text-center h-100">
+            <div class="feature-icon mb-2">
+              <i class="bi bi-person-gear fs-2"></i>
+            </div>
+            <h3 class="feature-title">AI Personal Assistant</h3>
+            <p class="feature-description">
+              Automate tasks, schedule meetings, and provide personalized support.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Controls -->
+  
+</div>
+
         </div>
     </section>
 
@@ -293,8 +317,8 @@
                             <i class="bi bi-star-fill"></i>
                             <i class="bi bi-star-fill"></i>
                             <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-half"></i>
+                            
                         </div>
                         <p class="testimonial-text">
                             "Perspective AI transformed our customer service with their chatbot solution. We've seen a 75% reduction in response times and significantly improved customer satisfaction."
@@ -310,7 +334,7 @@
                             <i class="bi bi-star-fill"></i>
                             <i class="bi bi-star-fill"></i>
                             <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-half"></i>
                         </div>
                         <p class="testimonial-text">
                             "The AI video generator has revolutionized our marketing campaigns. We can now create professional videos in minutes instead of days, saving thousands in production costs."
@@ -358,5 +382,6 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js\runningtext.js"></script>
 </body>
 </html>

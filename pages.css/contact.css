@@ -127,13 +127,26 @@ body {
     border: 1px solid rgba(102, 126, 234, 0.1);
     transition: all 0.3s ease;
     text-align: center;
-    height: 400px;
+    height: 300px;
 }
+
+.contact-cardd{
+    background: var(--card-dark);
+    border-radius: 20px;
+    padding: 32px;
+    margin-bottom: 32px;
+    border: 1px solid rgba(102, 126, 234, 0.1);
+    transition: all 0.3s ease;
+    text-align: center;
+    height: 370px;
+}
+
 
 .contact-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 20px 60px rgba(102, 126, 234, 0.2);
     border-color: var(--primary-color);
+   
 }
 
 .contact-icon {
@@ -232,7 +245,7 @@ select option {
 }
 
 .btn-submit:hover {
-    transform: translateY(-3px);
+    transform: translateY(-5px);
     box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
 }
 
@@ -241,6 +254,7 @@ select option {
     border-radius: 20px;
     overflow: hidden;
     border: 1px solid rgba(102, 126, 234, 0.1);
+    height: 350px;
 }
 
 .map-iframe {

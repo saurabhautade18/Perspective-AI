@@ -27,6 +27,14 @@
 }
 
 
+  @keyframes blink {
+    50% { opacity: 0 }
+  }
+
+
+
+
+
 /* Futuristic Floating Bubbles Background */
 body {
     background: var(--background-dark);
@@ -83,6 +91,26 @@ body {
     padding: 120px 0 80px;
 }
 
+.cursor {
+    display: inline-block;
+    width: 2px;
+    height: 55px;
+    margin-left: 2px;
+    color: white;
+    background-color: azure;
+    animation: blink 1s steps(1, end) infinite;
+    
+  }
+.carousel-item{
+    border: none;
+    box-shadow: none;
+}
+
+.navbar-brand .bim {
+    width: 40px;      /* desired width */
+    height: 40px;     /* desired height */
+    object-fit: contain;
+}
 
 
 .hero-title {
