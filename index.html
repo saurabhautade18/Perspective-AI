@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VisionAI Pro AI - Leading AI Solutions Provider</title>
+    <title>Perspective AI - Leading AI Solutions Provider</title>
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -12,486 +12,8 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <style>
-        /* === ROOT VARIABLES === */
-        :root {
-            --primary-color: #667EEA;
-            --secondary-color: #764BA2;
-            --accent-color: #00D4AA;
-            --background-dark: #0F0F23;
-            --card-dark: #1A1A2E;
-            --text-white: #FFFFFF;
-            --text-gray: #B8BCC8;
-            --gradient-primary: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
-            --gradient-accent: linear-gradient(135deg, #00D4AA 0%, #667EEA 100%);
-            --gradient-dark: linear-gradient(135deg, #0F0F23 0%, #1A1A2E 100%);
-        }
-
-        /* === GLOBAL STYLES === */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--background-dark);
-            color: var(--text-white);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* === ANIMATIONS === */
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        @keyframes glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(102, 126, 234, 0.3); }
-            50% { box-shadow: 0 0 40px rgba(102, 126, 234, 0.6); }
-        }
-
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        /* === NAVIGATION === */
-        .navbar {
-            background: rgba(15, 15, 35, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(102, 126, 234, 0.2);
-            padding: 1rem 0;
-            transition: all 0.3s ease;
-        }
-
-        .navbar-brand {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--text-white) !important;
-            text-decoration: none;
-        }
-
-        .navbar-brand img {
-            width: 40px;
-            height: 40px;
-            transition: transform 0.3s ease;
-        }
-
-        .navbar-brand:hover img {
-            transform: rotate(360deg) scale(1.1);
-        }
-
-        .navbar-nav .nav-link {
-            color: var(--text-gray) !important;
-            font-weight: 500;
-            margin: 0 1rem;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .navbar-nav .nav-link:hover {
-            color: var(--accent-color) !important;
-            transform: translateY(-2px);
-        }
-
-        .navbar-nav .nav-link.active {
-            color: var(--primary-color) !important;
-        }
-
-        .navbar-nav .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 50%;
-            background: var(--gradient-accent);
-            transition: all 0.3s ease;
-        }
-
-        .navbar-nav .nav-link:hover::after,
-        .navbar-nav .nav-link.active::after {
-            width: 100%;
-            left: 0;
-        }
-
-        .btn-get-started {
-            background: var(--gradient-primary);
-            border: none;
-            padding: 10px 24px;
-            border-radius: 50px;
-            color: var(--text-white);
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-get-started:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-            color: var(--text-white);
-        }
-
-        .btn-get-started::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .btn-get-started:hover::before {
-            left: 100%;
-        }
-
-        /* === HERO SECTION === */
-        .hero-section {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            background: var(--gradient-dark);
-            position: relative;
-            overflow: hidden;
-            padding: 120px 0 80px;
-        }
-
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 30% 50%, rgba(102, 126, 234, 0.1) 0%, transparent 50%);
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            animation: slideInUp 1s ease-out;
-        }
-
-        .hero-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 3.5rem;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-subtitle {
-            font-size: 1.3rem;
-            color: var(--text-gray);
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-bottom: 3rem;
-        }
-
-        .btn-primary-hero {
-            background: var(--gradient-primary);
-            border: none;
-            padding: 15px 30px;
-            border-radius: 50px;
-            color: var(--text-white);
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .btn-primary-hero:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
-            color: var(--text-white);
-        }
-
-        .btn-secondary-hero {
-            background: transparent;
-            border: 2px solid var(--accent-color);
-            padding: 13px 28px;
-            border-radius: 50px;
-            color: var(--accent-color);
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .btn-secondary-hero:hover {
-            background: var(--accent-color);
-            color: var(--background-dark);
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0, 212, 170, 0.3);
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--accent-color);
-            display: block;
-        }
-
-        .stat-label {
-            color: var(--text-gray);
-            font-size: 0.9rem;
-        }
-
-        /* === CARDS === */
-        .feature-card {
-            background: var(--card-dark);
-            border-radius: 20px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            border: 1px solid rgba(102, 126, 234, 0.1);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--gradient-primary);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.2);
-            border-color: var(--primary-color);
-        }
-
-        .feature-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .feature-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--gradient-accent);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-            color: var(--text-white);
-            animation: pulse 2s infinite;
-        }
-
-        .feature-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--text-white);
-        }
-
-        .feature-description {
-            color: var(--text-gray);
-            line-height: 1.6;
-        }
-
-        /* === SECTIONS === */
-        .section {
-            padding: 80px 0;
-            position: relative;
-        }
-
-        .section-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 1rem;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--text-gray);
-            font-size: 1.1rem;
-            margin-bottom: 3rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* === STANDOUT SECTION === */
-        .standout-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .standout-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--gradient-accent);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-white);
-            font-size: 1.2rem;
-            flex-shrink: 0;
-        }
-
-        .standout-text {
-            color: var(--text-gray);
-        }
-
-        /* === TESTIMONIALS === */
-        .testimonial-card {
-            background: var(--card-dark);
-            border-radius: 20px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            border: 1px solid rgba(102, 126, 234, 0.1);
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.15);
-        }
-
-        .testimonial-text {
-            font-style: italic;
-            color: var(--text-gray);
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-
-        .testimonial-author {
-            color: var(--text-white);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .testimonial-company {
-            color: var(--accent-color);
-            font-size: 0.9rem;
-        }
-
-        .testimonial-rating {
-            color: #FFD700;
-            margin-bottom: 1rem;
-        }
-
-        /* === FOOTER === */
-        .footer {
-            background: rgba(15, 15, 35, 0.95);
-            border-top: 1px solid rgba(102, 126, 234, 0.2);
-            padding: 2rem 0 1rem;
-            text-align: center;
-        }
-
-        .footer-text {
-            color: var(--text-gray);
-            margin-bottom: 1rem;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .footer-links a {
-            color: var(--text-gray);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--accent-color);
-        }
-
-        /* === RESPONSIVE === */
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .hero-stats {
-                justify-content: center;
-                gap: 2rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="pages.css\index.css">
+    <link rel="icon" type="image/png" href="attached_assets/generated_images/Modern_AI_company_logo_d28193a4.png">
 </head>
 <body>
     <!-- === NAVIGATION === -->
@@ -499,8 +21,8 @@
         <div class="container">
             <!-- Logo -->
             <a class="navbar-brand" href="index.html">
-                <img src="attached_assets/generated_images/Modern_AI_company_logo_d28193a4.png" alt="NeuralFlow AI Logo">
-                NeuralFlow AI
+                <img src="Images\perspective-ai.png" alt="NeuralFlow AI Logo">
+                Perspective AI
             </a>
             
             <!-- Mobile Toggle -->
@@ -580,7 +102,6 @@
                         <!-- Animated AI visualization would go here -->
                         <div class="feature-icon mx-auto" style="width: 200px; height: 200px; font-size: 4rem;">
                             <i class="bi bi-robot"></i>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -592,7 +113,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h2 class="section-title">What Makes NeuralFlow AI Stand Out?</h2>
+                    <h2 class="section-title">What Makes Perspective AI Stand Out?</h2>
                     <p class="section-subtitle">
                         We combine cutting-edge technology with industry expertise to deliver AI solutions that truly transform businesses
                     </p>
@@ -765,10 +286,10 @@
                             <i class="bi bi-star-fill"></i>
                         </div>
                         <p class="testimonial-text">
-                            "NeuralFlow AI transformed our customer service with their chatbot solution. We've seen a 75% reduction in response times and significantly improved customer satisfaction."
+                            "Perspective AI transformed our customer service with their chatbot solution. We've seen a 75% reduction in response times and significantly improved customer satisfaction."
                         </p>
-                        <div class="testimonial-author">Sarah Johnson</div>
-                        <div class="testimonial-company">CEO, TechStart Solutions</div>
+                        <div class="testimonial-author">Sundar Pichai</div>
+                        <div class="testimonial-company">CEO, Google</div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
@@ -783,7 +304,7 @@
                         <p class="testimonial-text">
                             "The AI video generator has revolutionized our marketing campaigns. We can now create professional videos in minutes instead of days, saving thousands in production costs."
                         </p>
-                        <div class="testimonial-author">Michael Chen</div>
+                        <p class="testimonial-author">Michael Chen</p>
                         <div class="testimonial-company">Marketing Director, Creative Hub</div>
                     </div>
                 </div>
@@ -818,7 +339,7 @@
                 <a href="pricing.html">Pricing</a>
             </div>
             <div class="footer-text">
-                <p>&copy; 2025 NeuralFlow AI. All rights reserved. | Pune, Maharashtra, India</p>
+                <p>&copy; 2025 Perspective AI. All rights reserved. | Pune, Maharashtra, India</p>
                 <p>Leading AI Solutions Provider | Transforming Businesses with Artificial Intelligence</p>
             </div>
         </div>
