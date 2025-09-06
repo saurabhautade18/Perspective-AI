@@ -9,9 +9,9 @@ let phrases = [
 const el = document.getElementById("typer");
 
 // Speeds (in ms)
-const TYPING_MS = 171;
+const TYPING_MS = 161;
 const PAUSE_MS  = 1100;
-const ERASE_MS  = 171;
+const ERASE_MS  = 161;
 
 let idx = 0;
 
