@@ -89,10 +89,11 @@ body {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: var(--gradient-dark);
+    
     position: relative;
     overflow: hidden;
     padding: 120px 0 80px;
+    color: var(--text-white);
 }
 
 .cursor {
@@ -135,7 +136,10 @@ body {
     margin-bottom: 2rem;
     line-height: 1.6;
 }
-
+:root.light-mode .hero-subtitle {
+    color: var(--text-dark);
+    text : black
+}
 .hero-buttons {
     display: flex;
     gap: 1rem;
@@ -175,6 +179,12 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 8px;
+}
+
+:root.light-mode .btn-secondary-hero {
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    background: yellowgreen
 }
 
 .btn-secondary-hero:hover {
@@ -389,4 +399,33 @@ body {
     .section-title {
         font-size: 2rem;
     }
+}
+
+
+
+
+/* Background video */
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.55) contrast(1.5);
+  z-index: -2;
+}
+
+
+/* Light mode version */
+:root.light-mode .hero-video {
+  filter: grayscale(100%) brightness(0.7) contrast(1.05);
+}
+
+:root.light-mode .hero-section::after {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.5) 0%,
+    rgba(240, 240, 240, 0.9) 100%
+  );
 }

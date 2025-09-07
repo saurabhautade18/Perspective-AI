@@ -427,6 +427,8 @@ body {
   overflow: hidden;
   padding: 120px 0 80px;
   color: var(--text-white);
+
+  
 }
 
 /* Background video */
@@ -441,20 +443,33 @@ body {
   z-index: -2;
 }
 
-/* Overlay gradient */
+/* Dark overlay for text readability */
 .hero-section::after {
+  content: "";
+  position: absolute;
+  top: 0; 
+  left: 0;
+  width: 100%; 
+  height: 100%;
+  background: rgba(0,0,0,0.68); /* adjust opacity */
+  z-index: -1;
+}
+
+
+:root.light-mode.hero-section::after{
+ background: rgba(0,0,0,0.95);
+}
+
+
+.hero-section::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    to bottom,
-    rgba(15, 15, 35, 0.6) 0%,
-    rgba(15, 15, 35, 0.85) 100%
-  );
-  z-index: -1;
+  background: black; /* gradient layer */
+  z-index: -3; /* keep it behind everything */
 }
 
 /* Light mode version */
@@ -469,3 +484,4 @@ body {
     rgba(240, 240, 240, 0.9) 100%
   );
 }
+
