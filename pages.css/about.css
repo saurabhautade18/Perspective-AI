@@ -50,6 +50,57 @@
   color: #000000;
 }
 
+.support {
+  font-size: 2rem;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.team-member {
+  perspective: 1000px;
+  transition: transform 0.5s ease, z-index 0.5s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  position: relative;
+}
+
+.team-member:hover {
+  transform: scale(1.2) rotateY(180deg);
+  z-index: 10;
+}
+
+.team-member .team-front,
+.team-member .team-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.team-member .team-front {
+  background: #fff;
+}
+
+.team-member .team-back {
+  background: #1a1a2e;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+/* Blur background when hovering */
+.row:hover .team-member:not(:hover) {
+  filter: blur(4px);
+  opacity: 0.6;
+  transform: scale(0.9);
+}
+
+
+
+
+
 .ai-icons {
   position: fixed;
   top: 0;

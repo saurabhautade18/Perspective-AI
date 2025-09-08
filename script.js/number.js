@@ -24,7 +24,8 @@ const observer = new IntersectionObserver((entries) => {
       animateCounter(entry.target);
     } else {
       // Reset when scrolled away
-      entry.target.innerText = "0";
+      const suffix = entry.target.getAttribute("data-suffix") || "";    
+      entry.target.innerText = "0" + suffix;
     }
   });
 }, { threshold: 0.5 });
