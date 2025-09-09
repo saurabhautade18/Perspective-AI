@@ -1,5 +1,3 @@
-
-
 /* === ANIMATIONS === */
 @keyframes float {
   0%,
@@ -313,9 +311,9 @@ body {
   border-color: var(--primary-color);
 }
 
-    .service-card:hover::before {
-    transform: scaleX(1);
-    } 
+.service-card:hover::before {
+  transform: scaleX(1);
+} 
 
 .service-icon {
   width: 80px;
@@ -348,20 +346,83 @@ body {
 .service-features {
   list-style: none;
   padding: 0;
-  margin-bottom: 2rem;
+  margin-bottom: 0rem;
 }
 
 .service-features li {
   color: var(--text-gray);
-  padding: 0.5rem 0;
+  padding: 0.25rem 0;
   display: flex;
+  font-size: 0.8rem;
   align-items: center;
   gap: 0.5rem;
 }
 
 .service-features li i {
   color: var(--accent-color);
-  font-size: 1.1rem;
+  font-size: 1rem;
+}
+
+/* === COMPARISON FEATURES === */
+.comparison-container {
+  margin-bottom: 2rem;
+}
+
+.comparison-title {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 600;
+  color: var(--text-white);
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.comparison-title::before {
+  content: "";
+  width: 3px;
+  height: 20px;
+  background: var(--gradient-primary);
+  border-radius: 2px;
+}
+
+.comparison-features {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.comparison-features li {
+  color: var(--text-gray);
+  padding: 0.25rem 0.6rem;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.comparison-features li i {
+  color: #d01818;
+  font-size: 1rem;
+  animation: pulse 2s infinite;
+}
+
+.comparison-features li::before {
+  content: "";
+  position: absolute;
+  left: -0px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2px;
+  height: 0;
+  background: var(--gradient-accent);
+  transition: height 0.3s ease;
+}
+
+.service-card:hover .comparison-features li::before {
+  height: 100%;
 }
 
 .service-pricing {
@@ -468,8 +529,6 @@ body {
   line-height: 1.6;
 }
 
-
-
 /* === RESPONSIVE === */
 @media (max-width: 768px) {
   .page-title {
@@ -482,6 +541,14 @@ body {
 
   .service-card {
     margin-bottom: 2rem;
+  }
+
+  .comparison-container .row {
+    flex-direction: column;
+  }
+
+  .comparison-container .col-md-6 {
+    margin-bottom: 1rem;
   }
 
   .footer-links {
