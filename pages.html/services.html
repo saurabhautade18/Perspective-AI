@@ -105,6 +105,79 @@
       </div>
     </nav>
 
+
+   <!-- Chatbot Widget -->
+ <!-- Chatbot Toggle Button -->
+<button id="chatbotToggle" class="chatbot-toggle">
+  <i class="bi bi-chat-dots-fill"></i>
+  <span id="chatText">Chat with us</span>
+</button>
+
+<!-- Chatbot Window -->
+<div id="chatbotWindow" class="chatbot-window d-none">
+  <div class="chatbot-header">
+    <span>AI Contact Bot</span>
+    <button class="chatbot-close" id="chatbotClose">✖</button>
+  </div>
+  <div class="chatbot-body" id="chatbotMessages">
+    <div class="chatbot-msg bot">👋 Hi! I’m here to help. What’s your question?</div>
+  </div>
+  <div class="chatbot-footer">
+    <input type="text" id="chatbotInput" placeholder="Type a message...">
+    <button id="chatbotSend">Send</button>
+  </div>
+</div>
+
+<!-- Vertical Right-Center Feedback Button -->
+<button class="feedback-toggle" id="feedbackToggle">
+   Feedback <i class="bi bi-chat-dots"></i>
+</button>
+
+<!-- Feedback Modal -->
+<div class="feedback-modal" id="feedbackModal">
+  <div class="feedback-header">
+    <span>Perspective AI Feedback</span>
+    <button id="closeFeedback"><i class="bi bi-x"></i></button>
+  </div>
+  <div class="feedback-body">
+    <div class="feedback-option"><i class="bi bi-bug"></i> Bug Report</div>
+    <div class="feedback-option"><i class="bi bi-lightbulb"></i> Feature Request</div>
+    <div class="feedback-option"><i class="bi bi-star"></i> General Feedback</div>
+  </div>
+
+  <div class="feedback-footer" style="display: flex; flex-direction: column; gap: 10px; padding: 16px;">
+    <textarea class="feedback-textarea" placeholder="Your feedback..." style="margin: 20px;"></textarea>
+    <button type="submit" class="feedback-submit" 
+    style="
+        background: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
+        color: #FFFFFF;
+        border: none;
+        border-radius: 8px;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.3);"
+        
+    
+>
+  Submit Feedback
+</button>
+  </div>
+</div>
+
+ <!--curser-->
+
+
+  
+    <div class="pointer" id="movee"></div>
+  
+
+
+  
+    <div class="ptblr" id="mov1"></div>
+   
+
     <!-- === PAGE HEADER === -->
 
     <!-- === AI SERVICES === -->
@@ -712,5 +785,50 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/script.js/toggle.js"></script>
+    <script src="/script.js/feedack.js"></script>
+     <script>
+      const toggle = document.getElementById('chatbotToggle');
+const windowEl = document.getElementById('chatbotWindow');
+const closeBtn = document.getElementById('chatbotClose');
+const input = document.getElementById('chatbotInput');
+const sendBtn = document.getElementById('chatbotSend');
+const messages = document.getElementById('chatbotMessages');
+const chatText = document.getElementById('chatText');
+
+// Toggle chatbot
+toggle.addEventListener('click', () => {
+  windowEl.classList.toggle('d-none');
+  chatText.innerText = ""; // remove text after first click
+});
+
+closeBtn.addEventListener('click', () => {
+  windowEl.classList.add('d-none');
+  chatText.innerText = "Chat with us"; // restore text on close
+});
+
+// Send Message
+sendBtn.addEventListener('click', () => {
+  const msg = input.value.trim();
+  if (!msg) return;
+
+  const userMsg = document.createElement('div');
+  userMsg.className = "chatbot-msg user";
+  userMsg.textContent = msg;
+  messages.appendChild(userMsg);
+
+  input.value = "";
+
+  setTimeout(() => {
+    const aiMsg = document.createElement('div');
+    aiMsg.className = "chatbot-msg bot";
+    aiMsg.textContent = "📩 Thanks for reaching out! Please leave your email and we’ll contact you soon.";
+    messages.appendChild(aiMsg);
+    messages.scrollTop = messages.scrollHeight;
+  }, 800);
+});
+
+
+    </script>
+   <script src="/script.js/cursor.js"></script>
   </body>
 </html>
