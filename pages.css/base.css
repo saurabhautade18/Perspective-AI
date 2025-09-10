@@ -296,6 +296,7 @@ body {
 
 .footer-links a:hover {
     color: var(--accent-color);
+    cursor: pointer;
 }
 
 
