@@ -247,7 +247,7 @@
         </button>
 
         <!-- === COMPANY STATS === -->
-        <section class="section" style="background: rgba(26, 26, 46, 0.3);">
+        <section class="section revealUp" style="background: rgba(26, 26, 46, 0.3);">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -292,7 +292,7 @@
         </section>
 
         <!-- === OUR TEAM === -->
-        <section class="section">
+        <section class="section revealUp">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -368,7 +368,7 @@
         </section>
 
         <!-- === WHY CHOOSE US === -->
-        <section class="section" style="background: rgba(26, 26, 46, 0.3);">
+        <section class="section revealUp" style="background: rgba(26, 26, 46, 0.3);">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -443,7 +443,7 @@
 
 
         <!-- === FAQ SECTION === -->
-        <section class="section">
+        <section class="section revealUp">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -525,7 +525,7 @@
         </section>
 
         <!-- === FOOTER === -->
-        <footer class="footer">
+        <footer class="footer revealUp">
             <div class="container">
                 <div class="footer-links">
                     <a href="/index.html">Home</a>
@@ -550,6 +550,9 @@
         <script src="/script.js/toggle.js"></script>
         <script src="/script.js/number.js"></script>
         <script src="/script.js/feedack.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
 
         <script>
@@ -595,6 +598,35 @@ sendBtn.addEventListener('click', () => {
 
 
     </script>
+    <!--Scroll animation-->
+    <script>
+        // Load GSAP + ScrollTrigger
+gsap.registerPlugin(ScrollTrigger);
+
+// Select all elements you want to animate after Vision/Mission
+gsap.utils.toArray(".revealUp").forEach((elem) => {
+  ScrollTrigger.create({
+    trigger: elem,
+    start: "top 85%",   // when element comes into view
+    end: "bottom 20%",
+    once: true,         // animate only once
+    onEnter: () => {
+      gsap.fromTo(
+        elem,
+        { y: 100, autoAlpha: 0 },
+        {
+          duration: 1.2,
+          y: 0,
+          autoAlpha: 1,
+          ease: "back.out(1.7)"
+        }
+      );
+    }
+  });
+});
+
+    </script>
+    <!--Scroll animation end-->
 <script src="/script.js/cursor.js"></script>
     </body>
 </html>
