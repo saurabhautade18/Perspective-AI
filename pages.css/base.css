@@ -606,7 +606,7 @@ body {
 
 /* === LIGHT MODE OVERRIDES === */
 :root.light-mode .feedback-modal {
-  background: var(--card-light);
+  background: #2a27d9;
   color: var(--text-dark);
   border-left: 1px solid var(--border-light);
 }
