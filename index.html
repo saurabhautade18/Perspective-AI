@@ -41,6 +41,7 @@
   <i class="bi bi-graph-up-arrow"></i>
 </div>
 
+
     <!-- === NAVIGATION === -->
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
         <div class="container">
@@ -79,6 +80,19 @@
                     </li>
                 </ul>
 
+
+                <div class="dropdown ms-auto">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+    🌐 Language
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+    <li><a class="dropdown-item lang-option" data-lang="en" href="#">English</a></li>
+    <li><a class="dropdown-item lang-option" data-lang="hi" href="#">हिन्दी</a></li>
+    <li><a class="dropdown-item lang-option" data-lang="mr" href="#">मराठी</a></li>
+  </ul>
+</div>
+
+
                  <button class="btn btn-outline-light me-5 me-3" id="themeToggle">
         <i class="bi bi-sun-fill" id="themeIcon"></i>
       </button>
@@ -90,6 +104,11 @@
             </div>
         </div>
     </nav>
+
+
+
+   
+
 
 
 
@@ -115,7 +134,59 @@
   </div>
 </div>
 
+<!-- Vertical Right-Center Feedback Button -->
+<button class="feedback-toggle" id="feedbackToggle">
+   Feedback <i class="bi bi-chat-dots"></i>
+</button>
 
+<!-- Feedback Modal -->
+<div class="feedback-modal" id="feedbackModal">
+  <div class="feedback-header">
+    <span>Perspective AI Feedback</span>
+    <button id="closeFeedback"><i class="bi bi-x"></i></button>
+  </div>
+  <div class="feedback-body">
+    <div class="feedback-option"><i class="bi bi-bug"></i> Bug Report</div>
+    <div class="feedback-option"><i class="bi bi-lightbulb"></i> Feature Request</div>
+    <div class="feedback-option"><i class="bi bi-star"></i> General Feedback</div>
+  </div>
+
+  <div class="feedback-footer" style="display: flex; flex-direction: column; gap: 10px; padding: 16px;">
+    <textarea class="feedback-textarea" placeholder="Your feedback..." style="margin: 20px;"></textarea>
+    <button type="submit" class="feedback-submit" 
+    style="
+        background: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
+        color: #FFFFFF;
+        border: none;
+        border-radius: 8px;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.3);"
+        
+    
+>
+  Submit Feedback
+</button>
+  </div>
+</div>
+
+
+
+
+ <!--curser-->
+
+
+  
+    <div class="pointer" id="movee"></div>
+  
+
+
+  
+    <div class="ptblr" id="mov1"></div>
+   
+    
 
     <!-- === HERO SECTION === -->
     <section class="hero-section">
@@ -146,24 +217,35 @@
               Book Demo
             </a>
           </div>
-          <div class="hero-stats">
-            <div class="stat-item">
-              <span class="stat-number">500+</span>
-              <span class="stat-label">AI Projects Completed</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number">98%</span>
-              <span class="stat-label">Client Satisfaction</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number">24/7</span>
-              <span class="stat-label">Support Available</span>
-            </div>
-          </div>
+         <div class="row hero-stats">
+  <div class="col-lg-4 stat-item">
+    <span class="stat-wrapper">
+      <span class="stat-number" data-target="500">0</span>
+      <span class="stat-suffix">+</span>
+    </span>
+    <span class="stat-label">AI Projects Completed</span>
+  </div>
+  <div class="col-lg-4 stat-item">
+    <span class="stat-wrapper">
+      <span class="stat-number" data-target="98">0</span>
+      <span class="stat-suffix">%</span>
+    </span>
+    <span class="stat-label">Client Satisfaction</span>
+  </div>
+  <div class="col-lg-4 stat-item">
+    <span class="stat-wrapper">
+      <span class="stat-number" data-target="24">0</span>
+      <span class="stat-suffix">/7</span>
+    </span>
+    <span class="stat-label">Support Available</span>
+  </div>
+</div>
+
+
         </div>
       </div>
       <div class="col-lg-6">
-        <div class="hero-image text-center" style="width: 325px; height: 325px; margin: 0 auto; display: flex; justify-content: center; align-items: center;">
+        <div class="hero-image text-center" style="width: 500px; height: 500px; margin: 0 auto; display: flex; justify-content: center; align-items: center; animation: pulse 2.5s infinite ease-in-out;">
                  <dotlottie-wc
   src="https://lottie.host/a275fa42-d50c-4995-8f21-1858595a08d7/J4yT7wBN65.lottie"
   style="width: 100%;height: 100%"
@@ -486,5 +568,8 @@ sendBtn.addEventListener('click', () => {
   src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js"
   type="module"
 ></script>
+<script src="script.js/count.js"></script>
+<script src="script.js/feedack.js"></script>
+<script src="script.js/cursor.js"></script>
 </body>
 </html>
