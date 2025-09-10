@@ -604,6 +604,64 @@ body {
     box-shadow: 0 6px 15px rgba(0,0,0,0.3);
 }
 
+/* Social Flip Box */
+.social-flip {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  perspective: 1000px;
+  z-index: 999;
+}
+
+.social-inner {
+  width: 60px;
+  height: 180px;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.social-flip:hover .social-inner {
+  transform: rotateY(180deg);
+}
+
+.social-front, .social-back {
+  position: absolute;
+  width: 60px;
+  height: 140px;
+  background: var(--gradient-accent);
+  color: var(--text-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 0px 30px 30px 0px;
+  backface-visibility: hidden;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 8;
+}
+
+.social-back {
+  transform: rotateY(180deg);
+  flex-direction: column;
+  writing-mode: unset;
+  gap: 15px;
+  font-size: 20px;
+}
+
+.social-back a {
+  color: #fff;
+  transition: color 0.3s;
+}
+
+.social-back a:hover {
+  color: #FFD700;
+}
+
 /* === LIGHT MODE OVERRIDES === */
 :root.light-mode .feedback-modal {
   background: #2a27d9;

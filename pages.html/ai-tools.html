@@ -17,6 +17,7 @@
 
 </head>
 <body>
+
     <!-- === NAVIGATION === -->
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
             <div class="container">
@@ -137,6 +138,19 @@
   </div>
 </div>
 
+<div class="social-flip">
+  <div class="social-inner">
+    <!-- Front -->
+    <div class="social-front">SOCIAL</div>
+    <!-- Back -->
+    <div class="social-back">
+      <a href="#"><i class="bi bi-instagram"></i></a>
+      <a href="#"><i class="bi bi-facebook"></i></a>
+      <a href="#"><i class="bi bi-whatsapp"></i></a>
+    </div>
+  </div>
+</div>
+
  <!--curser-->
 
 
@@ -154,20 +168,13 @@
 
 
     <!-- === PAGE HEADER === -->
-    <section class="page-header">
-        <div class="container">
-            <h1 class="page-title">AI Tools & APIs</h1>
-            <p class="page-subtitle">
-                Powerful AI tools and APIs integrated with cutting-edge models to accelerate your development
-            </p>
-        </div>
-    </section>
+    
 
     <!-- === AI TOOLS SHOWCASE === -->
     <section class="section">
         <div class="container">
             <div class="row">
-                <div class="col-12">
+                <div class="col-12 mt-4">
                     <h2 class="section-title">Integrated AI Tools</h2>
                     <p class="section-subtitle">
                         Production-ready AI tools powered by industry-leading APIs and models
@@ -176,7 +183,7 @@
             </div>
             
             <div class="row">
-                <!-- NeuralFlow Text API -->
+                <!-- Text API -->
                 <div class="col-lg-6 mb-4">
                     <div class="tool-card">
                         <div class="tool-icon">
@@ -199,7 +206,7 @@
                                 API Integration
                             </h6>
                             <div class="api-endpoint">
-                                POST https://api.neuralflow.ai/v1/text/generate<br>
+                                POST https://api.perspective.ai/v1/text/generate<br>
                                 Content-Type: application/json<br>
                                 Authorization: Bearer YOUR_API_KEY
                             </div>
@@ -217,7 +224,8 @@
                             </div>
                         </div>
 
-                        <a href="contact.html" class="tool-cta">Access API</a>
+                 <a  class="tool-cta" onclick="accessApi()" >Access API</a>
+
                     </div>
                 </div>
 
@@ -244,7 +252,7 @@
                                 API Integration
                             </h6>
                             <div class="api-endpoint">
-                                POST https://api.neuralflow.ai/v1/chat/complete<br>
+                                POST https://api.perspective.ai/v1/chat/complete<br>
                                 Content-Type: application/json<br>
                                 Authorization: Bearer YOUR_API_KEY
                             </div>
@@ -262,7 +270,7 @@
                             </div>
                         </div>
 
-                        <a href="contact.html" class="tool-cta">Access API</a>
+                         <a  class="tool-cta" onclick="accessApi()" >Access API</a>
                     </div>
                 </div>
 
@@ -289,7 +297,7 @@
                                 API Integration
                             </h6>
                             <div class="api-endpoint">
-                                POST https://api.neuralflow.ai/v1/video/generate<br>
+                                POST https://api.perspective.ai/v1/video/generate<br>
                                 Content-Type: multipart/form-data<br>
                                 Authorization: Bearer YOUR_API_KEY
                             </div>
@@ -307,7 +315,7 @@
                             </div>
                         </div>
 
-                        <a href="contact.html" class="tool-cta">Access API</a>
+                         <a  class="tool-cta" onclick="accessApi()" >Access API</a>
                     </div>
                 </div>
 
@@ -334,7 +342,7 @@
                                 API Integration
                             </h6>
                             <div class="api-endpoint">
-                                POST https://api.neuralflow.ai/v1/audio/synthesize<br>
+                                POST https://api.perspective.ai/v1/audio/synthesize<br>
                                 Content-Type: application/json<br>
                                 Authorization: Bearer YOUR_API_KEY
                             </div>
@@ -352,7 +360,7 @@
                             </div>
                         </div>
 
-                        <a href="contact.html" class="tool-cta">Access API</a>
+                         <a  class="tool-cta" onclick="accessApi()" >Access API</a>
                     </div>
                 </div>
 
@@ -379,7 +387,7 @@
                                 API Integration
                             </h6>
                             <div class="api-endpoint">
-                                POST https://api.neuralflow.ai/v1/music/compose<br>
+                                POST https://api.perspective.ai/v1/music/compose<br>
                                 Content-Type: application/json<br>
                                 Authorization: Bearer YOUR_API_KEY
                             </div>
@@ -397,7 +405,7 @@
                             </div>
                         </div>
 
-                        <a href="contact.html" class="tool-cta">Access API</a>
+                         <a  class="tool-cta" onclick="accessApi()" >Access API</a>
                     </div>
                 </div>
 
@@ -424,7 +432,7 @@
                                 API Integration
                             </h6>
                             <div class="api-endpoint">
-                                POST https://api.neuralflow.ai/v1/assistant/execute<br>
+                                POST https://api.perspective.ai/v1/assistant/execute<br>
                                 Content-Type: application/json<br>
                                 Authorization: Bearer YOUR_API_KEY
                             </div>
@@ -442,7 +450,7 @@
                             </div>
                         </div>
 
-                        <a href="contact.html" class="tool-cta">Access API</a>
+                       <a  class="tool-cta" onclick="accessApi()" >Access API</a>
                     </div>
                 </div>
             </div>
@@ -566,5 +574,6 @@ sendBtn.addEventListener('click', () => {
 
     </script>
 <script src="/script.js/cursor.js"></script>
+<script src="/script.js/Access_api.js"></script>
 </body>
 </html>
