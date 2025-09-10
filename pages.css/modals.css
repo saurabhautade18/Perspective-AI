@@ -1,26 +1,4 @@
-/* CSS Variables for theming */
-:root {
-  --bg-dark: #0a0a0a;
-  --card-dark: #1a1a1a;
-  --hover-bg: #2a2a2a;
-  --border-color: rgba(102, 126, 234, 0.2);
-  --text-white: #ffffff;
-  --text-primary: #e8e8e8;
-  --text-secondary: #a0a0a0;
-  --primary-color: #667ee4;
-  --accent-color: #00d4ff;
-  --gradient-primary: linear-gradient(135deg, #667ee4 0%, #764ba2 100%);
-  --gradient-accent: linear-gradient(135deg, #00d4ff 0%, #667ee4 100%);
-}
-
-/* Global styles */
-body {
-  background: var(--bg-dark);
-  color: var(--text-white);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-}
-
-/* === SERVICE MODAL STYLES === */
+/* === GLOBAL MODAL STYLES === */
 .service-modal .modal-content {
   background: var(--card-dark);
   border-radius: 20px;
@@ -62,7 +40,7 @@ body {
   opacity: 1;
 }
 
-/* Generator Form Styles */
+/* === IMAGE GENERATOR MODAL STYLES === */
 .generator-card {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -80,6 +58,10 @@ body {
   font-size: 1rem;
 }
 
+.form-select option {
+  background-color: rgb(38,38,57);
+}
+
 .form-control:focus, .form-select:focus {
   background: rgba(255, 255, 255, 0.1);
   border-color: var(--accent-color);
@@ -95,20 +77,6 @@ body {
   color: var(--text-white);
   font-weight: 500;
   margin-bottom: 0.8rem;
-}
-
-.form-check-input {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.form-check-input:checked {
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
-}
-
-.form-check-label {
-  color: var(--text-primary);
 }
 
 .btn-generate {
@@ -130,7 +98,7 @@ body {
   color: white;
 }
 
-.image-preview, .video-preview {
+.image-preview {
   background: rgba(255, 255, 255, 0.05);
   border: 2px dashed rgba(255, 255, 255, 0.3);
   border-radius: 15px;
@@ -141,7 +109,7 @@ body {
   transition: all 0.3s ease;
 }
 
-.image-preview:hover, .video-preview:hover {
+.image-preview:hover {
   border-color: var(--accent-color);
   background: rgba(0, 212, 255, 0.05);
 }
@@ -157,7 +125,7 @@ body {
   display: block;
 }
 
-/* Chat Interface Styles */
+/* === CHAT BOT MODAL STYLES === */
 .chat-container {
   height: 400px;
   background: rgba(255, 255, 255, 0.05);
@@ -201,7 +169,24 @@ body {
   gap: 10px;
 }
 
-/* AI Interface Layout */
+/* === VIDEO GENERATOR MODAL STYLES === */
+.video-preview {
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px dashed rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.video-preview:hover {
+  border-color: var(--accent-color);
+  background: rgba(0, 212, 255, 0.05);
+}
+
+/* === UNIFIED AI INTERFACE MODAL STYLES === */
 .modal-content {
   background: var(--card-dark);
   border-radius: 20px;
@@ -651,7 +636,7 @@ body {
   box-shadow: none;
 }
 
-/* Music Generator Styles */
+/* === MUSIC GENERATOR MODAL STYLES === */
 .music-visualizer {
   height: 150px;
   background: rgba(255, 255, 255, 0.05);
@@ -706,7 +691,21 @@ body {
   box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
 }
 
-/* Personal Assistant Styles */
+/* === AI PERSONAL ASSISTANT MODAL STYLES === */
+.form-check-input {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.form-check-input:checked {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.form-check-label {
+  color: var(--text-primary);
+}
+
 .assistant-avatar {
   width: 80px;
   height: 80px;
@@ -790,6 +789,7 @@ body {
   color: white;
 }
 
+/* === GLOBAL UTILITY STYLES === */
 /* Scrollbar Styling */
 .messages-container::-webkit-scrollbar,
 .chat-messages::-webkit-scrollbar {
@@ -867,7 +867,7 @@ body {
   transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 
-/* === RESPONSIVE === */
+/* === RESPONSIVE STYLES === */
 @media (max-width: 768px) {
   .service-modal .modal-body,
   .modal-body {
