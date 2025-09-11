@@ -1,649 +1,668 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>About Us - Perspective AI</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - Perspective AI</title>
 
-        <meta name="description"
-            content="Perspective AI offers cutting-edge AI solutions including AI Chat Bots, AI Text Generators, AI Video Generators, and more. Transform your business with our advanced artificial intelligence services.">
+    <meta
+      name="description"
+      content="Perspective AI offers cutting-edge AI solutions including AI Chat Bots, AI Text Generators, AI Video Generators, and more. Transform your business with our advanced artificial intelligence services."
+    />
 
-        <!-- Bootstrap CSS -->
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-            rel="stylesheet">
-        <!-- Bootstrap Icons -->
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
-            rel="stylesheet">
-        <!-- Google Fonts -->
-        <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-            rel="stylesheet">
-            <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
 
-        <link rel="stylesheet" href="/pages.css/base.css">
-        <link rel="stylesheet" href="/pages.css/about.css">
-    </head>
-    <body>
-        <div class="ai-icons">
-            <i class="bi bi-cpu"></i>
-            <i class="bi bi-gear-fill"></i>
-            <i class="bi bi-lightbulb-fill"></i>
-            <i class="bi bi-diagram-3-fill"></i>
-            <i class="bi bi-graph-up-arrow"></i>
-            <i class="bi bi-cpu"></i>
-            <i class="bi bi-gear-fill"></i>
-            <i class="bi bi-lightbulb-fill"></i>
-            <i class="bi bi-diagram-3-fill"></i>
-            <i class="bi bi-graph-up-arrow"></i>
-            <i class="bi bi-cpu"></i>
-            <i class="bi bi-gear-fill"></i>
-            <i class="bi bi-lightbulb-fill"></i>
-            <i class="bi bi-diagram-3-fill"></i>
-            <i class="bi bi-graph-up-arrow"></i>
-        </div>
-        <!-- === NAVIGATION === -->
-        <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
-            <div class="container">
-                <!-- Logo -->
-                <a class="navbar-brand" href="index.html">
-                    <img src="/Images/perspective-ai.png"
-                        alt="Perspective AI Logo">
-                    Perspective AI
-                </a>
-
-                <!-- Mobile Toggle -->
-                <button class="navbar-toggler border-0" type="button"
-                    data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- Navigation Menu -->
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav mx-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active"
-                                href="/pages.html/AboutUs.html">About Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link"
-                                href="/pages.html/services.html">Services</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link"
-                                href="/pages.html/ai-tools.html">AI Tools</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link"
-                                href="/pages.html/pricing.html">Pricing</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link"
-                                href="/pages.html/contact.html">Contact</a>
-                        </li>
-                    </ul>
-                    <div class="dropdown ms-auto">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-    🌐 Language
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="languageDropdown">
-    <li><a class="dropdown-item lang-option" data-lang="en" href="#">English</a></li>
-    <li><a class="dropdown-item lang-option" data-lang="hi" href="#">हिन्दी</a></li>
-    <li><a class="dropdown-item lang-option" data-lang="mr" href="#">मराठी</a></li>
-  </ul>
-</div>
-
-                    <button class="btn btn-outline-light me-3" id="themeToggle">
-                        <i class="bi bi-sun-fill" id="themeIcon"></i>
-                    </button>
-
-                    <!-- Get Started Button -->
-                    <a href="contact.html" class="btn-get-started">
-                        Get Started
-                    </a>
-                </div>
-                
-            </div>
-        </nav>
-
-
-<!-- Chatbot Widget -->
- <!-- Chatbot Toggle Button -->
-<button id="chatbotToggle" class="chatbot-toggle">
-  <i class="bi bi-chat-dots-fill"></i>
-  <span id="chatText">Chat with us</span>
-</button>
-
-<!-- Chatbot Window -->
-<div id="chatbotWindow" class="chatbot-window d-none">
-  <div class="chatbot-header">
-    <span>AI Contact Bot</span>
-    <button class="chatbot-close" id="chatbotClose">✖</button>
-  </div>
-  <div class="chatbot-body" id="chatbotMessages">
-    <div class="chatbot-msg bot">👋 Hi! I’m here to help. What’s your question?</div>
-  </div>
-  <div class="chatbot-footer">
-    <input type="text" id="chatbotInput" placeholder="Type a message...">
-    <button id="chatbotSend">Send</button>
-  </div>
-</div>
-
-
-
-<!-- Vertical Right-Center Feedback Button -->
-<button class="feedback-toggle" id="feedbackToggle">
-   Feedback <i class="bi bi-chat-dots"></i>
-</button>
-
-<!-- Feedback Modal -->
-<div class="feedback-modal" id="feedbackModal">
-  <div class="feedback-header">
-    <span>Perspective AI Feedback</span>
-    <button id="closeFeedback"><i class="bi bi-x"></i></button>
-  </div>
-  <div class="feedback-body">
-    <div class="feedback-option"><i class="bi bi-bug"></i> Bug Report</div>
-    <div class="feedback-option"><i class="bi bi-lightbulb"></i> Feature Request</div>
-    <div class="feedback-option"><i class="bi bi-star"></i> General Feedback</div>
-  </div>
-
-  <div class="feedback-footer" style="display: flex; flex-direction: column; gap: 10px; padding: 16px;">
-    <textarea class="feedback-textarea" placeholder="Your feedback..." style="margin: 20px;"></textarea>
-    <button type="submit" class="feedback-submit" 
-    style="
-        background: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
-        color: #FFFFFF;
-        border: none;
-        border-radius: 8px;
-        padding: 10px 20px;
-        font-size: 16px;
-        font-weight: 600;
-        cursor: pointer;
-        box-shadow: 0 6px 15px rgba(0,0,0,0.3);"
-        
-    
->
-  Submit Feedback
-</button>
-  </div>
-</div>
-
-<!-- Social Vertical Flip Box -->
-<div class="social-flip">
-  <div class="social-inner">
-    <!-- Front -->
-    <div class="social-front">SOCIAL</div>
-    <!-- Back -->
-    <div class="social-back">
-      <a href="#"><i class="bi bi-instagram"></i></a>
-      <a href="#"><i class="bi bi-facebook"></i></a>
-      <a href="#"><i class="bi bi-whatsapp"></i></a>
+    <link rel="stylesheet" href="/pages.css/base.css" />
+    <link rel="stylesheet" href="/pages.css/about.css" />
+  </head>
+  <body>
+    <div class="ai-icons">
+      <i class="bi bi-cpu"></i>
+      <i class="bi bi-gear-fill"></i>
+      <i class="bi bi-lightbulb-fill"></i>
+      <i class="bi bi-diagram-3-fill"></i>
+      <i class="bi bi-graph-up-arrow"></i>
+      <i class="bi bi-cpu"></i>
+      <i class="bi bi-gear-fill"></i>
+      <i class="bi bi-lightbulb-fill"></i>
+      <i class="bi bi-diagram-3-fill"></i>
+      <i class="bi bi-graph-up-arrow"></i>
+      <i class="bi bi-cpu"></i>
+      <i class="bi bi-gear-fill"></i>
+      <i class="bi bi-lightbulb-fill"></i>
+      <i class="bi bi-diagram-3-fill"></i>
+      <i class="bi bi-graph-up-arrow"></i>
     </div>
-  </div>
-</div>
+    <!-- === NAVIGATION === -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+      <div class="container">
+        <!-- Logo -->
+        <a class="navbar-brand" href="index.html">
+          <img src="/Images/perspective-ai.png" alt="Perspective AI Logo" />
+          Perspective AI
+        </a>
 
-
-
-
-
- <!--curser-->
-
-
-  
-    <div class="pointer" id="movee"></div>
-  
-
-
-  
-    <div class="ptblr" id="mov1"></div>
-   
-
-        <!-- === OUR STORY === -->
-        <section class="section animate__animated animate__backInDown">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 mt-4">
-                        <h2 class="section-title">Our Story</h2>    
-                        <p class="section-subtitle">
-                            Founded with a vision to democratize AI technology
-                            and make it accessible to businesses of all sizes
-                        </p>
-                    </div>
-                </div>
-                <div class="row align-items-center">
-                    <div class="col-lg-6">
-                        <div class="info-card">
-                            <div class="card-icon">
-                                <i class="bi bi-lightbulb"></i>
-                            </div>
-                            <h3 class="card-title">Our Mission</h3>
-                            <p class="card-description">
-                                To empower businesses with cutting-edge AI
-                                solutions that drive innovation, efficiency, and
-                                growth. We believe that artificial intelligence
-                                should be accessible, practical, and
-                                transformative for every organization,
-                                regardless of size or industry.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="info-card">
-                            <div class="card-icon">
-                                <i class="bi-camera"></i>
-                            </div>
-                            <h3 class="card-title">Our Vision</h3>
-                            <p class="card-description">
-                                To be the leading AI solutions provider
-                                globally, setting new standards for innovation
-                                and excellence. We envision a future where AI
-                                seamlessly integrates into every aspect of
-                                business operations, creating unprecedented
-                                opportunities for growth and success.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Chatbot Toggle Button -->
-        <button id="chatbotToggle" class="chatbot-toggle">
-            <i class="bi bi-chat-dots-fill"></i>
-            <span id="chatText">Chat with us</span>
+        <!-- Mobile Toggle -->
+        <button
+          class="navbar-toggler border-0"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
         </button>
 
-        <!-- === COMPANY STATS === -->
-        <section class="section revealUp" style="background: rgba(26, 26, 46, 0.3);">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <h2 class="section-title">Our Impact</h2>
-                        <p class="section-subtitle">
-                            Numbers that reflect our commitment to excellence
-                            and client success
-                        </p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="stat-card">
-                            <span class="stat-number" data-target="500"
-                                data-suffix="+">0</span>
-                            <div class="stat-label">Projects Completed</div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="stat-card">
-                            <span class="stat-number" data-target="150"
-                                data-suffix="+">0</span>
-                            <div class="stat-label">Happy Clients</div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="stat-card">
-                            <span class="stat-number" data-target="98"
-                                data-suffix="%">0</span>
-                            <div class="stat-label">Client Satisfaction</div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="stat-card">
-                            <span class="stat-number" data-target="24"
-                                data-suffix="/7">0</span>
-                            <div class="stat-label">Support Available</div>
-                        </div>
-                    </div>
-                </div>
+        <!-- Navigation Menu -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/pages.html/AboutUs.html"
+                >About Us</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/pages.html/services.html">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/pages.html/ai-tools.html">AI Tools</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/pages.html/pricing.html">Pricing</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/pages.html/contact.html">Contact</a>
+            </li>
+          </ul>
+          <div class="dropdown ms-auto">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              id="languageDropdown"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              🌐 Language
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+              <li>
+                <a class="dropdown-item lang-option" data-lang="en" href="#"
+                  >English</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item lang-option" data-lang="hi" href="#"
+                  >हिन्दी</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item lang-option" data-lang="mr" href="#"
+                  >मराठी</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <button class="btn btn-outline-light me-3" id="themeToggle">
+            <i class="bi bi-sun-fill" id="themeIcon"></i>
+          </button>
+
+          <!-- Get Started Button -->
+          <a href="contact.html" class="btn-get-started"> Get Started </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Chatbot Widget -->
+    <!-- Chatbot Toggle Button -->
+    <button id="chatbotToggle" class="chatbot-toggle">
+      <i class="bi bi-chat-dots-fill"></i>
+      <span id="chatText">Chat with us</span>
+    </button>
+
+    <!-- Chatbot Window -->
+    <div id="chatbotWindow" class="chatbot-window d-none">
+      <div class="chatbot-header">
+        <span>AI Contact Bot</span>
+        <button class="chatbot-close" id="chatbotClose">✖</button>
+      </div>
+      <div class="chatbot-body" id="chatbotMessages">
+        <div class="chatbot-msg bot">
+          👋 Hi! I’m here to help. What’s your question?
+        </div>
+      </div>
+      <div class="chatbot-footer">
+        <input type="text" id="chatbotInput" placeholder="Type a message..." />
+        <button id="chatbotSend">Send</button>
+      </div>
+    </div>
+
+    <!-- Vertical Right-Center Feedback Button -->
+    <button class="feedback-toggle" id="feedbackToggle">
+      Feedback <i class="bi bi-chat-dots"></i>
+    </button>
+
+    <!-- Feedback Modal -->
+    <div class="feedback-modal" id="feedbackModal">
+      <div class="feedback-header">
+        <span>Perspective AI Feedback</span>
+        <button id="closeFeedback"><i class="bi bi-x"></i></button>
+      </div>
+      <div class="feedback-body">
+        <div class="feedback-option"><i class="bi bi-bug"></i> Bug Report</div>
+        <div class="feedback-option">
+          <i class="bi bi-lightbulb"></i> Feature Request
+        </div>
+        <div class="feedback-option">
+          <i class="bi bi-star"></i> General Feedback
+        </div>
+      </div>
+
+      <div
+        class="feedback-footer"
+        style="display: flex; flex-direction: column; gap: 10px; padding: 16px"
+      >
+        <textarea
+          class="feedback-textarea"
+          placeholder="Your feedback..."
+          style="margin: 20px"
+        ></textarea>
+        <button
+          type="submit"
+          class="feedback-submit"
+          style="
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+          "
+        >
+          Submit Feedback
+        </button>
+      </div>
+    </div>
+
+    <!-- Social Vertical Flip Box -->
+    <div class="social-flip">
+      <div class="social-inner">
+        <!-- Front -->
+        <div class="social-front">SOCIAL</div>
+        <!-- Back -->
+        <div class="social-back">
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="#"><i class="bi bi-facebook"></i></a>
+          <a href="#"><i class="bi bi-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!--curser-->
+
+    <div class="pointer" id="movee"></div>
+
+    <div class="ptblr" id="mov1"></div>
+
+    <!-- === OUR STORY === -->
+    <section class="section animate__animated animate__backInDown">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 mt-4">
+            <h2 class="section-title">Our Story</h2>
+            <p class="section-subtitle">
+              Founded with a vision to democratize AI technology and make it
+              accessible to businesses of all sizes
+            </p>
+          </div>
+        </div>
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <div class="info-card">
+              <div class="card-icon">
+                <i class="bi bi-lightbulb"></i>
+              </div>
+              <h3 class="card-title">Our Mission</h3>
+              <p class="card-description">
+                To empower businesses with cutting-edge AI solutions that drive
+                innovation, efficiency, and growth. We believe that artificial
+                intelligence should be accessible, practical, and transformative
+                for every organization, regardless of size or industry.
+              </p>
             </div>
-        </section>
-
-        <!-- === OUR TEAM === -->
-        <section class="section revealUp">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <h2 class="section-title">Meet Our Team</h2>
-                        <p class="section-subtitle">
-                            Expert AI specialists and engineers dedicated to
-                            delivering exceptional results
-                        </p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="team-member">
-                                <div class="team-avatar">
-                                    <i class="bi bi-person-circle"></i>
-                                </div>
-                                <h4 class="team-name">Er. Saurabh Autade</h4>
-                                <p class="team-role">CEO & Founder</p>
-                                <p class="team-bio">
-                                    BE in E&TC Engineering with expertise in AI
-                                    infrastructure. Passionate about innovation
-                                    and leading teams to deliver impactful
-                                    technology solutions.
-                                </p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="team-member">
-                            <div class="team-avatar">
-                                <i class="bi bi-person-circle"></i>
-                            </div>
-                            <h4 class="team-name">Er.Gaurav Patil</h4>
-                            <p class="team-role">CTO & Co-Founder</p>
-                            <p class="team-bio">
-                                Machine Learning expert with expertise in neural
-                                networks and deep learning. Former Microsoft AI
-                                researcher.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="team-member">
-                            <div class="team-avatar">
-                                <i class="bi bi-person-circle"></i>
-                            </div>
-                            <h4 class="team-name">Er.Labhesh Patil</h4>
-                            <p class="team-role">Head of AI Development</p>
-                            <p class="team-bio">
-                                Specialized in computer vision and NLP
-                                developing enterprise AI solutions for Fortune
-                                500 companies.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="team-member">
-                            <div class="team-avatar">
-                                <i class="bi bi-person-circle"></i>
-                            </div>
-                            <h4 class="team-name">Er.Kalpesh Narkhede</h4>
-                            <p class="team-role">AI Solutions Architect</p>
-                            <p class="team-bio">
-                                Expert in scalable AI infrastructure and cloud
-                                deployment. Passionate about building robust,
-                                secure, and efficient AI systems for enterprise
-                                clients.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="info-card">
+              <div class="card-icon">
+                <i class="bi-camera"></i>
+              </div>
+              <h3 class="card-title">Our Vision</h3>
+              <p class="card-description">
+                To be the leading AI solutions provider globally, setting new
+                standards for innovation and excellence. We envision a future
+                where AI seamlessly integrates into every aspect of business
+                operations, creating unprecedented opportunities for growth and
+                success.
+              </p>
             </div>
-        </section>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <!-- === WHY CHOOSE US === -->
-        <section class="section revealUp" style="background: rgba(26, 26, 46, 0.3);">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <h2 class="section-title">Why Choose Perspective AI</h2>
-                        <p class="section-subtitle">
-                            What sets us apart in the competitive AI landscape
-                        </p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6 mb-4">
-                        <div class="info-card">
-                            <div class="card-icon">
-                                <i class="bi bi-award"></i>
-                            </div>
-                            <h3 class="card-title">Industry Expertise</h3>
-                            <p class="card-description">
-                                Our team comprises AI experts with deep industry
-                                knowledge and proven track records in delivering
-                                successful AI implementations across various
-                                sectors including healthcare, finance, and
-                                technology.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 mb-4">
-                        <div class="info-card">
-                            <div class="card-icon">
-                                <i class="bi bi-gear"></i>
-                            </div>
-                            <h3 class="card-title">Cutting-Edge Technology</h3>
-                            <p class="card-description">
-                                We leverage the latest AI technologies including
-                                GPT models, computer vision, and machine
-                                learning frameworks to deliver state-of-the-art
-                                solutions that drive real business value.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 mb-4">
-                        <div class="info-card">
-                            <div class="card-icon">
-                                <i class="bi bi-people"></i>
-                            </div>
-                            <h3 class="card-title">Client-Centric Approach</h3>
-                            <p class="card-description">
-                                Every solution is tailored to meet specific
-                                client needs. We work closely with our clients
-                                to understand their challenges and deliver
-                                customized AI solutions that exceed
-                                expectations.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 mb-4">
-                        <div class="info-card">
-                            <div class="card-icon">
-                                <i class="bi bi-shield-check"></i>
-                            </div>
-                            <h3 class="card-title">Security & Compliance</h3>
-                            <p class="card-description">
-                                We prioritize data security and privacy with
-                                enterprise-grade security measures, compliance
-                                with international standards, and robust data
-                                protection protocols.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+    <!-- Chatbot Toggle Button -->
+    <button id="chatbotToggle" class="chatbot-toggle">
+      <i class="bi bi-chat-dots-fill"></i>
+      <span id="chatText">Chat with us</span>
+    </button>
+
+    <!-- === COMPANY STATS === -->
+    <section class="section revealUp" style="background: rgba(26, 26, 46, 0.3)">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h2 class="section-title">Our Impact</h2>
+            <p class="section-subtitle">
+              Numbers that reflect our commitment to excellence and client
+              success
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="stat-card">
+              <span class="stat-number" data-target="500" data-suffix="+"
+                >0</span
+              >
+              <div class="stat-label">Projects Completed</div>
             </div>
-        </section>
-
-
-        <!-- === FAQ SECTION === -->
-        <section class="section revealUp">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <h2 class="section-title">Frequently Asked
-                            Questions</h2>
-                        <p class="section-subtitle">
-                            Common questions about our company and services
-                        </p>
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="faq-item">
-                            <button class="faq-question" type="button"
-                                data-bs-toggle="collapse"
-                                data-bs-target="#faq1">
-                                How long has Perspective AI been in business?
-                                <i class="bi bi-plus-lg"></i>
-                            </button>
-                            <div class="collapse show faq-answer" id="faq1">
-                                Perspective AI was founded in 2020 and has been
-                                at the forefront of AI innovation for over 4
-                                years. We've successfully completed 500+
-                                projects and built a strong reputation in the
-                                industry.
-                            </div>
-                        </div>
-
-                        <div class="faq-item">
-                            <button class="faq-question" type="button"
-                                data-bs-toggle="collapse"
-                                data-bs-target="#faq2">
-                                What industries do you serve?
-                                <i class="bi bi-plus-lg"></i>
-                            </button>
-                            <div class="collapse faq-answer" id="faq2">
-                                We serve diverse industries including
-                                healthcare, finance, e-commerce, manufacturing,
-                                education, and technology. Our AI solutions are
-                                adaptable to various business sectors and
-                                requirements.
-                            </div>
-                        </div>
-
-                        <div class="faq-item">
-                            <button class="faq-question" type="button"
-                                data-bs-toggle="collapse"
-                                data-bs-target="#faq3">
-                                Do you provide ongoing support after
-                                implementation?
-                                <i class="bi bi-plus-lg"></i>
-                            </button>
-                            <div class="collapse faq-answer" id="faq3">
-                                Yes, we provide comprehensive 24/7 support
-                                including maintenance, updates, troubleshooting,
-                                and optimization. Our support team ensures your
-                                AI solutions continue to perform at their best.
-                            </div>
-                        </div>
-
-                        <div class="faq-item">
-                            <button class="faq-question" type="button"
-                                data-bs-toggle="collapse"
-                                data-bs-target="#faq4">
-                                How do you ensure data security and privacy?
-                                <i class="bi bi-plus-lg"></i>
-                            </button>
-                            <div class="collapse faq-answer" id="faq4">
-                                We implement enterprise-grade security measures
-                                including encryption, secure APIs, compliance
-                                with GDPR and other regulations, and regular
-                                security audits to protect your data and
-                                privacy.
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="stat-card">
+              <span class="stat-number" data-target="150" data-suffix="+"
+                >0</span
+              >
+              <div class="stat-label">Happy Clients</div>
             </div>
-        </section>
-
-        <!-- === FOOTER === -->
-        <footer class="footer revealUp">
-            <div class="container">
-                <div class="footer-links">
-                    <a href="/index.html">Home</a>
-                    <a href="/pages.html/AboutUs.html active">About</a>
-                    <a href="/pages.html/services.html">Services</a>
-                    <a href="/pages.html/ai-tools.html">Ai Tools</a>
-                    <a href="/pages.html/contact.html">Contact</a>
-                    <a href="/pages.html/pricing.html">Pricing</a>
-                </div>
-                <div class="footer-text">
-                    <p>&copy; 2025 Perspective AI. All rights reserved. | Pune,
-                        Maharashtra, India</p>
-                    <p>Leading AI Solutions Provider | Transforming Businesses
-                        with Artificial Intelligence</p>
-                </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="stat-card">
+              <span class="stat-number" data-target="98" data-suffix="%"
+                >0</span
+              >
+              <div class="stat-label">Client Satisfaction</div>
             </div>
-        </footer>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="stat-card">
+              <span class="stat-number" data-target="24" data-suffix="/7"
+                >0</span
+              >
+              <div class="stat-label">Support Available</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <!-- Bootstrap JS -->
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="/script.js/toggle.js"></script>
-        <script src="/script.js/number.js"></script>
-        <script src="/script.js/feedack.js"></script>
+    <!-- === OUR TEAM === -->
+    <section class="section revealUp">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h2 class="section-title">Meet Our Team</h2>
+            <p class="section-subtitle">
+              Expert AI specialists and engineers dedicated to delivering
+              exceptional results
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="team-member">
+              <div class="team-avatar">
+                <i class="bi bi-person-circle"></i>
+              </div>
+              <h4 class="team-name">Er. Saurabh Autade</h4>
+              <p class="team-role">CEO & Founder</p>
+              <p class="team-bio">
+                BE in E&TC Engineering with expertise in AI infrastructure.
+                Passionate about innovation and leading teams to deliver
+                impactful technology solutions.
+              </p>
+            </div>
+          </div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="team-member">
+              <div class="team-avatar">
+                <i class="bi bi-person-circle"></i>
+              </div>
+              <h4 class="team-name">Er.Gaurav Patil</h4>
+              <p class="team-role">CTO & Co-Founder</p>
+              <p class="team-bio">
+                Machine Learning expert with expertise in neural networks and
+                deep learning. Former Microsoft AI researcher.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="team-member">
+              <div class="team-avatar">
+                <i class="bi bi-person-circle"></i>
+              </div>
+              <h4 class="team-name">Er.Labhesh Patil</h4>
+              <p class="team-role">Head of AI Development</p>
+              <p class="team-bio">
+                Specialized in computer vision and NLP developing enterprise AI
+                solutions for Fortune 500 companies.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="team-member">
+              <div class="team-avatar">
+                <i class="bi bi-person-circle"></i>
+              </div>
+              <h4 class="team-name">Er.Kalpesh Narkhede</h4>
+              <p class="team-role">AI Solutions Architect</p>
+              <p class="team-bio">
+                Expert in scalable AI infrastructure and cloud deployment.
+                Passionate about building robust, secure, and efficient AI
+                systems for enterprise clients.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <!-- === WHY CHOOSE US === -->
+    <section class="section revealUp" style="background: rgba(26, 26, 46, 0.3)">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h2 class="section-title">Why Choose Perspective AI</h2>
+            <p class="section-subtitle">
+              What sets us apart in the competitive AI landscape
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 mb-4">
+            <div class="info-card">
+              <div class="card-icon">
+                <i class="bi bi-award"></i>
+              </div>
+              <h3 class="card-title">Industry Expertise</h3>
+              <p class="card-description">
+                Our team comprises AI experts with deep industry knowledge and
+                proven track records in delivering successful AI implementations
+                across various sectors including healthcare, finance, and
+                technology.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-6 mb-4">
+            <div class="info-card">
+              <div class="card-icon">
+                <i class="bi bi-gear"></i>
+              </div>
+              <h3 class="card-title">Cutting-Edge Technology</h3>
+              <p class="card-description">
+                We leverage the latest AI technologies including GPT models,
+                computer vision, and machine learning frameworks to deliver
+                state-of-the-art solutions that drive real business value.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-6 mb-4">
+            <div class="info-card">
+              <div class="card-icon">
+                <i class="bi bi-people"></i>
+              </div>
+              <h3 class="card-title">Client-Centric Approach</h3>
+              <p class="card-description">
+                Every solution is tailored to meet specific client needs. We
+                work closely with our clients to understand their challenges and
+                deliver customized AI solutions that exceed expectations.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-6 mb-4">
+            <div class="info-card">
+              <div class="card-icon">
+                <i class="bi bi-shield-check"></i>
+              </div>
+              <h3 class="card-title">Security & Compliance</h3>
+              <p class="card-description">
+                We prioritize data security and privacy with enterprise-grade
+                security measures, compliance with international standards, and
+                robust data protection protocols.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <script>
-      const toggle = document.getElementById('chatbotToggle');
-const windowEl = document.getElementById('chatbotWindow');
-const closeBtn = document.getElementById('chatbotClose');
-const input = document.getElementById('chatbotInput');
-const sendBtn = document.getElementById('chatbotSend');
-const messages = document.getElementById('chatbotMessages');
-const chatText = document.getElementById('chatText');
+    <!-- === FAQ SECTION === -->
+    <section class="section revealUp">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">
+              Common questions about our company and services
+            </p>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="faq-item">
+              <button
+                class="faq-question"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faq1"
+              >
+                How long has Perspective AI been in business?
+                <i class="bi bi-dash-lg"></i>
+              </button>
+              <div class="collapse show faq-answer" id="faq1">
+                Perspective AI was founded in 2020 and has been at the forefront
+                of AI innovation for over 4 years. We've successfully completed
+                500+ projects and built a strong reputation in the industry.
+              </div>
+            </div>
 
-// Toggle chatbot
-toggle.addEventListener('click', () => {
-  windowEl.classList.toggle('d-none');
-  chatText.innerText = ""; // remove text after first click
-});
+            <div class="faq-item">
+              <button
+                class="faq-question"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faq2"
+              >
+                What industries do you serve?
+                <i class="bi bi-plus-lg"></i>
+              </button>
+              <div class="collapse faq-answer" id="faq2">
+                We serve diverse industries including healthcare, finance,
+                e-commerce, manufacturing, education, and technology. Our AI
+                solutions are adaptable to various business sectors and
+                requirements.
+              </div>
+            </div>
 
-closeBtn.addEventListener('click', () => {
-  windowEl.classList.add('d-none');
-  chatText.innerText = "Chat with us"; // restore text on close
-});
+            <div class="faq-item">
+              <button
+                class="faq-question"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faq3"
+              >
+                Do you provide ongoing support after implementation?
+                <i class="bi bi-plus-lg"></i>
+              </button>
+              <div class="collapse faq-answer" id="faq3">
+                Yes, we provide comprehensive 24/7 support including
+                maintenance, updates, troubleshooting, and optimization. Our
+                support team ensures your AI solutions continue to perform at
+                their best.
+              </div>
+            </div>
 
-// Send Message
-sendBtn.addEventListener('click', () => {
-  const msg = input.value.trim();
-  if (!msg) return;
+            <div class="faq-item">
+              <button
+                class="faq-question"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faq4"
+              >
+                How do you ensure data security and privacy?
+                <i class="bi bi-plus-lg"></i>
+              </button>
+              <div class="collapse faq-answer" id="faq4">
+                We implement enterprise-grade security measures including
+                encryption, secure APIs, compliance with GDPR and other
+                regulations, and regular security audits to protect your data
+                and privacy.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  const userMsg = document.createElement('div');
-  userMsg.className = "chatbot-msg user";
-  userMsg.textContent = msg;
-  messages.appendChild(userMsg);
+    <!-- === FOOTER === -->
+    <footer class="footer revealUp">
+      <div class="container">
+        <div class="footer-links">
+          <a href="/index.html">Home</a>
+          <a href="/pages.html/AboutUs.html active">About</a>
+          <a href="/pages.html/services.html">Services</a>
+          <a href="/pages.html/ai-tools.html">Ai Tools</a>
+          <a href="/pages.html/contact.html">Contact</a>
+          <a href="/pages.html/pricing.html">Pricing</a>
+        </div>
+        <div class="footer-text">
+          <p>
+            &copy; 2025 Perspective AI. All rights reserved. | Pune,
+            Maharashtra, India
+          </p>
+          <p>
+            Leading AI Solutions Provider | Transforming Businesses with
+            Artificial Intelligence
+          </p>
+        </div>
+      </div>
+    </footer>
 
-  input.value = "";
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/script.js/toggle.js"></script>
+    <script src="/script.js/number.js"></script>
+    <script src="/script.js/feedack.js"></script>
+    <script src="/script.js/faq_icon_toggle.js"></script>
 
-  setTimeout(() => {
-    const aiMsg = document.createElement('div');
-    aiMsg.className = "chatbot-msg bot";
-    aiMsg.textContent = "📩 Thanks for reaching out! Please leave your email and we’ll contact you soon.";
-    messages.appendChild(aiMsg);
-    messages.scrollTop = messages.scrollHeight;
-  }, 800);
-});
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script>
+      const toggle = document.getElementById("chatbotToggle");
+      const windowEl = document.getElementById("chatbotWindow");
+      const closeBtn = document.getElementById("chatbotClose");
+      const input = document.getElementById("chatbotInput");
+      const sendBtn = document.getElementById("chatbotSend");
+      const messages = document.getElementById("chatbotMessages");
+      const chatText = document.getElementById("chatText");
 
+      // Toggle chatbot
+      toggle.addEventListener("click", () => {
+        windowEl.classList.toggle("d-none");
+        chatText.innerText = ""; // remove text after first click
+      });
 
+      closeBtn.addEventListener("click", () => {
+        windowEl.classList.add("d-none");
+        chatText.innerText = "Chat with us"; // restore text on close
+      });
+
+      // Send Message
+      sendBtn.addEventListener("click", () => {
+        const msg = input.value.trim();
+        if (!msg) return;
+
+        const userMsg = document.createElement("div");
+        userMsg.className = "chatbot-msg user";
+        userMsg.textContent = msg;
+        messages.appendChild(userMsg);
+
+        input.value = "";
+
+        setTimeout(() => {
+          const aiMsg = document.createElement("div");
+          aiMsg.className = "chatbot-msg bot";
+          aiMsg.textContent =
+            "📩 Thanks for reaching out! Please leave your email and we’ll contact you soon.";
+          messages.appendChild(aiMsg);
+          messages.scrollTop = messages.scrollHeight;
+        }, 800);
+      });
     </script>
     <!--Scroll animation-->
     <script>
-        // Load GSAP + ScrollTrigger
-gsap.registerPlugin(ScrollTrigger);
+      // Load GSAP + ScrollTrigger
+      gsap.registerPlugin(ScrollTrigger);
 
-// Select all elements you want to animate after Vision/Mission
-gsap.utils.toArray(".revealUp").forEach((elem) => {
-  ScrollTrigger.create({
-    trigger: elem,
-    start: "top 85%",   // when element comes into view
-    end: "bottom 20%",
-    once: true,         // animate only once
-    onEnter: () => {
-      gsap.fromTo(
-        elem,
-        { y: 100, autoAlpha: 0 },
-        {
-          duration: 1.2,
-          y: 0,
-          autoAlpha: 1,
-          ease: "back.out(1.7)"
-        }
-      );
-    }
-  });
-});
-
+      // Select all elements you want to animate after Vision/Mission
+      gsap.utils.toArray(".revealUp").forEach((elem) => {
+        ScrollTrigger.create({
+          trigger: elem,
+          start: "top 85%", // when element comes into view
+          end: "bottom 20%",
+          once: true, // animate only once
+          onEnter: () => {
+            gsap.fromTo(
+              elem,
+              { y: 100, autoAlpha: 0 },
+              {
+                duration: 1.2,
+                y: 0,
+                autoAlpha: 1,
+                ease: "back.out(1.7)",
+              }
+            );
+          },
+        });
+      });
     </script>
     <!--Scroll animation end-->
-<script src="/script.js/cursor.js"></script>
-    </body>
+    <script src="/script.js/cursor.js"></script>
+  </body>
 </html>
