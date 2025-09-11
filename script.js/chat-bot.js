@@ -39,3 +39,14 @@ sendBtn.addEventListener('click', () => {
     messages.scrollTop = messages.scrollHeight;
   }, 800);
 });
+
+
+
+  window.addEventListener("scroll", function() {
+    const navbar = document.getElementByClassName("navbar");
+    if (window.scrollY > 50) {
+      navbar.classList.add("scrolled");
+    } else {
+      navbar.classList.remove("scrolled");
+    }
+  });
