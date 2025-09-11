@@ -105,91 +105,98 @@
       </div>
     </nav>
 
+    <!-- Chatbot Widget -->
+    <!-- Chatbot Toggle Button -->
+    <button id="chatbotToggle" class="chatbot-toggle">
+      <i class="bi bi-chat-dots-fill"></i>
+      <span id="chatText">Chat with us</span>
+    </button>
 
-   <!-- Chatbot Widget -->
- <!-- Chatbot Toggle Button -->
-<button id="chatbotToggle" class="chatbot-toggle">
-  <i class="bi bi-chat-dots-fill"></i>
-  <span id="chatText">Chat with us</span>
-</button>
-
-<!-- Chatbot Window -->
-<div id="chatbotWindow" class="chatbot-window d-none">
-  <div class="chatbot-header">
-    <span>AI Contact Bot</span>
-    <button class="chatbot-close" id="chatbotClose">✖</button>
-  </div>
-  <div class="chatbot-body" id="chatbotMessages">
-    <div class="chatbot-msg bot">👋 Hi! I’m here to help. What’s your question?</div>
-  </div>
-  <div class="chatbot-footer">
-    <input type="text" id="chatbotInput" placeholder="Type a message...">
-    <button id="chatbotSend">Send</button>
-  </div>
-</div>
-
-<!-- Vertical Right-Center Feedback Button -->
-<button class="feedback-toggle" id="feedbackToggle">
-   Feedback <i class="bi bi-chat-dots"></i>
-</button>
-
-<!-- Feedback Modal -->
-<div class="feedback-modal" id="feedbackModal">
-  <div class="feedback-header">
-    <span>Perspective AI Feedback</span>
-    <button id="closeFeedback"><i class="bi bi-x"></i></button>
-  </div>
-  <div class="feedback-body">
-    <div class="feedback-option"><i class="bi bi-bug"></i> Bug Report</div>
-    <div class="feedback-option"><i class="bi bi-lightbulb"></i> Feature Request</div>
-    <div class="feedback-option"><i class="bi bi-star"></i> General Feedback</div>
-  </div>
-
-  <div class="feedback-footer" style="display: flex; flex-direction: column; gap: 10px; padding: 16px;">
-    <textarea class="feedback-textarea" placeholder="Your feedback..." style="margin: 20px;"></textarea>
-    <button type="submit" class="feedback-submit" 
-    style="
-        background: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
-        color: #FFFFFF;
-        border: none;
-        border-radius: 8px;
-        padding: 10px 20px;
-        font-size: 16px;
-        font-weight: 600;
-        cursor: pointer;
-        box-shadow: 0 6px 15px rgba(0,0,0,0.3);"
-        
-    
->
-  Submit Feedback
-</button>
-  </div>
-</div>
-
-<div class="social-flip">
-  <div class="social-inner">
-    <!-- Front -->
-    <div class="social-front">SOCIAL</div>
-    <!-- Back -->
-    <div class="social-back">
-      <a href="#"><i class="bi bi-instagram"></i></a>
-      <a href="#"><i class="bi bi-facebook"></i></a>
-      <a href="#"><i class="bi bi-whatsapp"></i></a>
+    <!-- Chatbot Window -->
+    <div id="chatbotWindow" class="chatbot-window d-none">
+      <div class="chatbot-header">
+        <span>AI Contact Bot</span>
+        <button class="chatbot-close" id="chatbotClose">✖</button>
+      </div>
+      <div class="chatbot-body" id="chatbotMessages">
+        <div class="chatbot-msg bot">
+          👋 Hi! I’m here to help. What’s your question?
+        </div>
+      </div>
+      <div class="chatbot-footer">
+        <input type="text" id="chatbotInput" placeholder="Type a message..." />
+        <button id="chatbotSend">Send</button>
+      </div>
     </div>
-  </div>
-</div>
 
- <!--curser-->
+    <!-- Vertical Right-Center Feedback Button -->
+    <button class="feedback-toggle" id="feedbackToggle">
+      Feedback <i class="bi bi-chat-dots"></i>
+    </button>
 
+    <!-- Feedback Modal -->
+    <div class="feedback-modal" id="feedbackModal">
+      <div class="feedback-header">
+        <span>Perspective AI Feedback</span>
+        <button id="closeFeedback"><i class="bi bi-x"></i></button>
+      </div>
+      <div class="feedback-body">
+        <div class="feedback-option"><i class="bi bi-bug"></i> Bug Report</div>
+        <div class="feedback-option">
+          <i class="bi bi-lightbulb"></i> Feature Request
+        </div>
+        <div class="feedback-option">
+          <i class="bi bi-star"></i> General Feedback
+        </div>
+      </div>
 
-  
+      <div
+        class="feedback-footer"
+        style="display: flex; flex-direction: column; gap: 10px; padding: 16px"
+      >
+        <textarea
+          class="feedback-textarea"
+          placeholder="Your feedback..."
+          style="margin: 20px"
+        ></textarea>
+        <button
+          type="submit"
+          class="feedback-submit"
+          style="
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+          "
+        >
+          Submit Feedback
+        </button>
+      </div>
+    </div>
+
+    <div class="social-flip">
+      <div class="social-inner">
+        <!-- Front -->
+        <div class="social-front">SOCIAL</div>
+        <!-- Back -->
+        <div class="social-back">
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="#"><i class="bi bi-facebook"></i></a>
+          <a href="#"><i class="bi bi-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!--curser-->
+
     <div class="pointer" id="movee"></div>
-  
 
-
-  
     <div class="ptblr" id="mov1"></div>
-   
 
     <!-- === PAGE HEADER === -->
 
@@ -524,7 +531,8 @@
               <div class="service-pricing">
                 <div class="price-label">Starting from</div>
                 <div class="price-amount">₹14,999/month</div>
-                <small style="color: white;" class="">(Save 30% vs individual services)</small
+                <small style="color: white" class=""
+                  >(Save 30% vs individual services)</small
                 >
               </div>
               <div class="tech-stack">
@@ -716,7 +724,6 @@
         </div>
       </div>
     </section>
-   
 
     <!-- === SERVICE FAQ === -->
     <section class="section" style="background: rgba(26, 26, 46, 0.3)">
@@ -831,23 +838,27 @@
 
     <!-- === FOOTER === -->
     <footer class="footer revealUp">
-            <div class="container">
-                <div class="footer-links">
-                    <a href="/index.html">Home</a>
-                    <a href="/pages.html/AboutUs.html">About</a>
-                    <a href="/pages.html/services.html active">Services</a>
-                    <a href="/pages.html/ai-tools.html">Ai Tools</a>
-                    <a href="/pages.html/contact.html">Contact</a>
-                    <a href="/pages.html/pricing.html">Pricing</a>
-                </div>
-                <div class="footer-text">
-                    <p>&copy; 2025 Perspective AI. All rights reserved. | Pune,
-                        Maharashtra, India</p>
-                    <p>Leading AI Solutions Provider | Transforming Businesses
-                        with Artificial Intelligence</p>
-                </div>
-            </div>
-        </footer>
+      <div class="container">
+        <div class="footer-links">
+          <a href="/index.html">Home</a>
+          <a href="/pages.html/AboutUs.html">About</a>
+          <a href="/pages.html/services.html active">Services</a>
+          <a href="/pages.html/ai-tools.html">Ai Tools</a>
+          <a href="/pages.html/contact.html">Contact</a>
+          <a href="/pages.html/pricing.html">Pricing</a>
+        </div>
+        <div class="footer-text">
+          <p>
+            &copy; 2025 Perspective AI. All rights reserved. | Pune,
+            Maharashtra, India
+          </p>
+          <p>
+            Leading AI Solutions Provider | Transforming Businesses with
+            Artificial Intelligence
+          </p>
+        </div>
+      </div>
+    </footer>
 
     <div id="modal-container"></div>
 
@@ -855,80 +866,61 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/script.js/toggle.js"></script>
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const faqs = document.querySelectorAll(".faq-question");
-
-        faqs.forEach((faq) => {
-          const icon = faq.querySelector("i");
-          const target = document.querySelector(faq.dataset.bsTarget);
-
-          // On show event
-          target.addEventListener("show.bs.collapse", () => {
-            icon.classList.remove("bi-plus-lg");
-            icon.classList.add("bi-dash-lg");
-          });
-
-          // On hide event
-          target.addEventListener("hide.bs.collapse", () => {
-            icon.classList.remove("bi-dash-lg");
-            icon.classList.add("bi-plus-lg");
-          });
-        });
-      });
+      
     </script>
     <script>
-  // Load modals from external file
-  fetch('/pages.html/modals.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('modal-container').innerHTML = data;
-    })
-    .catch(error => console.error('Error loading modals:', error));
+      // Load modals from external file
+      fetch("/pages.html/modals.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("modal-container").innerHTML = data;
+        })
+        .catch((error) => console.error("Error loading modals:", error));
     </script>
     <script src="/script.js/feedack.js"></script>
-     <script>
-      const toggle = document.getElementById('chatbotToggle');
-const windowEl = document.getElementById('chatbotWindow');
-const closeBtn = document.getElementById('chatbotClose');
-const input = document.getElementById('chatbotInput');
-const sendBtn = document.getElementById('chatbotSend');
-const messages = document.getElementById('chatbotMessages');
-const chatText = document.getElementById('chatText');
+    <script src="/script.js/faq_icon_toggle.js"></script>
+    <script>
+      const toggle = document.getElementById("chatbotToggle");
+      const windowEl = document.getElementById("chatbotWindow");
+      const closeBtn = document.getElementById("chatbotClose");
+      const input = document.getElementById("chatbotInput");
+      const sendBtn = document.getElementById("chatbotSend");
+      const messages = document.getElementById("chatbotMessages");
+      const chatText = document.getElementById("chatText");
 
-// Toggle chatbot
-toggle.addEventListener('click', () => {
-  windowEl.classList.toggle('d-none');
-  chatText.innerText = ""; // remove text after first click
-});
+      // Toggle chatbot
+      toggle.addEventListener("click", () => {
+        windowEl.classList.toggle("d-none");
+        chatText.innerText = ""; // remove text after first click
+      });
 
-closeBtn.addEventListener('click', () => {
-  windowEl.classList.add('d-none');
-  chatText.innerText = "Chat with us"; // restore text on close
-});
+      closeBtn.addEventListener("click", () => {
+        windowEl.classList.add("d-none");
+        chatText.innerText = "Chat with us"; // restore text on close
+      });
 
-// Send Message
-sendBtn.addEventListener('click', () => {
-  const msg = input.value.trim();
-  if (!msg) return;
+      // Send Message
+      sendBtn.addEventListener("click", () => {
+        const msg = input.value.trim();
+        if (!msg) return;
 
-  const userMsg = document.createElement('div');
-  userMsg.className = "chatbot-msg user";
-  userMsg.textContent = msg;
-  messages.appendChild(userMsg);
+        const userMsg = document.createElement("div");
+        userMsg.className = "chatbot-msg user";
+        userMsg.textContent = msg;
+        messages.appendChild(userMsg);
 
-  input.value = "";
+        input.value = "";
 
-  setTimeout(() => {
-    const aiMsg = document.createElement('div');
-    aiMsg.className = "chatbot-msg bot";
-    aiMsg.textContent = "📩 Thanks for reaching out! Please leave your email and we’ll contact you soon.";
-    messages.appendChild(aiMsg);
-    messages.scrollTop = messages.scrollHeight;
-  }, 800);
-});
-
-
+        setTimeout(() => {
+          const aiMsg = document.createElement("div");
+          aiMsg.className = "chatbot-msg bot";
+          aiMsg.textContent =
+            "📩 Thanks for reaching out! Please leave your email and we’ll contact you soon.";
+          messages.appendChild(aiMsg);
+          messages.scrollTop = messages.scrollHeight;
+        }, 800);
+      });
     </script>
-   <script src="/script.js/cursor.js"></script>
+    <script src="/script.js/cursor.js"></script>
   </body>
 </html>
