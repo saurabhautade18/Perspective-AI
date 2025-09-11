@@ -1,0 +1,1383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - NeuralFlow AI</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* === ROOT VARIABLES === */
+        :root {
+            --primary-color: #667EEA;
+            --secondary-color: #764BA2;
+            --accent-color: #00D4AA;
+            --background-dark: #0F0F23;
+            --card-dark: #1A1A2E;
+            --text-white: #FFFFFF;
+            --text-gray: #B8BCC8;
+            --gradient-primary: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
+            --gradient-accent: linear-gradient(135deg, #00D4AA 0%, #667EEA 100%);
+            --gradient-dark: linear-gradient(135deg, #0F0F23 0%, #1A1A2E 100%);
+        }
+
+        /* === GLOBAL STYLES === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--background-dark);
+            color: var(--text-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+
+
+        /* === ANIMATIONS === */
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* === NAVIGATION === */
+        .navbar {
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(102, 126, 234, 0.2);
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--text-white) !important;
+            text-decoration: none;
+        }
+
+        .navbar-brand img {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-brand:hover img {
+            transform: rotate(360deg) scale(1.1);
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--text-gray) !important;
+            font-weight: 500;
+            margin: 0 1rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--accent-color) !important;
+            transform: translateY(-2px);
+        }
+
+        .navbar-nav .nav-link.active {
+            color: var(--primary-color) !important;
+        }
+
+        .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background: var(--gradient-accent);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover::after,
+        .navbar-nav .nav-link.active::after {
+            width: 100%;
+            left: 0;
+        }
+
+        .btn-get-started {
+            background: var(--gradient-primary);
+            border: none;
+            padding: 10px 24px;
+            border-radius: 50px;
+            color: var(--text-white);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-get-started:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            color: var(--text-white);
+        }
+
+
+        /* === PAGE HEADER === */
+        .page-header {
+            padding: 120px 0 80px;
+            background: var(--gradient-dark);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 70% 30%, rgba(102, 126, 234, 0.1) 0%, transparent 50%);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .page-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-subtitle {
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* === SECTIONS === */
+        .section {
+            padding: 50px 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* === PRICING CARDS === */
+        .pricing-card {
+            background: var(--card-dark);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(102, 126, 234, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            text-align: center;
+        }
+
+        .pricing-card.popular {
+            border: 2px solid var(--accent-color);
+            transform: scale(1.05);
+        }
+
+        .pricing-card.popular::before {
+            content: 'Most Popular';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--gradient-accent);
+            color: var(--text-white);
+            padding: 0.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 70px rgba(102, 126, 234, 0.3);
+            border-color: var(--primary-color);
+        }
+
+        .pricing-card.popular:hover {
+            transform: translateY(-10px) scale(1.05);
+        }
+
+        .plan-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-white);
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+        }
+
+        .plan-price {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .plan-period {
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+        }
+
+        .plan-description {
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .plan-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .plan-features li {
+            color: var(--text-gray);
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .plan-features li i {
+            color: var(--accent-color);
+            font-size: 1.1rem;
+        }
+
+        .plan-features li.not-included {
+            opacity: 0.5;
+        }
+
+        .plan-features li.not-included i {
+            color: var(--text-gray);
+        }
+
+        .plan-cta {
+            background: var(--gradient-primary);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            color: var(--text-white);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .plan-cta.secondary {
+            background: transparent;
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        .plan-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+            color: var(--text-white);
+        }
+
+        .plan-cta.secondary:hover {
+            background: var(--accent-color);
+            color: var(--background-dark);
+        }
+
+        /* === FAQ SECTION === */
+        .faq-item {
+            background: var(--card-dark);
+            border-radius: 15px;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(102, 126, 234, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: var(--primary-color);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            background: rgba(102, 126, 234, 0.1);
+            border: none;
+            width: 100%;
+            text-align: left;
+            color: var(--text-white);
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: rgba(102, 126, 234, 0.2);
+        }
+
+        .faq-answer {
+            padding: 1rem 1.5rem 1.5rem;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        /* === COMPARISON TABLE === */
+        .comparison-table {
+            background: var(--card-dark);
+            border-radius: 15px;
+            padding: 2rem;
+            overflow-x: auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: slideInUp 0.8s ease-out;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+        }
+
+        .comparison-table table {
+            width: 100%;
+            margin: 0;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+        /* Make all headers text-align left */
+        .comparison-table th {
+            background: var(--gradient-primary);
+            color: white;
+            font-weight: 600;
+            padding: 1.2rem;
+            border: none;
+            text-align: left;
+            font-size: 1rem;
+        }
+
+        .comparison-table th:first-child {
+            border-radius: 10px 0 0 0;
+        }
+
+        .comparison-table th:last-child {
+            border-radius: 0 10px 0 0;
+        }
+
+        /* Make all cells text-align left */
+        .comparison-table td {
+            padding: 1rem;
+            border: none;
+            color: var(--text-white);
+            text-align: left;
+            border-bottom: 1px solid rgba(102, 126, 234, 0.2);
+            background: rgba(102, 126, 234, 0.05);
+            font-size: 0.95rem;
+        }
+
+        /* Style first column slightly different (bold + bg) */
+        .comparison-table td:first-child {
+            font-weight: 600;
+            color: var(--text-white);
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        .comparison-table tr:hover {
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        .comparison-table tr:hover td {
+            background: rgba(102, 126, 234, 0.15);
+        }
+
+        .comparison-table .text-success {
+            color: var(--accent-color) !important;
+            font-weight: 600;
+        }
+
+        .comparison-table .text-danger {
+            color: #ff6b6b !important;
+            font-weight: 600;
+        }
+
+
+        /* === FOOTER === */
+        .footer {
+            background: rgba(15, 15, 35, 0.95);
+            border-top: 1px solid rgba(102, 126, 234, 0.2);
+            padding: 2rem 0 1rem;
+            text-align: center;
+        }
+
+        .footer-text {
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .pricing-card.popular {
+                transform: none;
+            }
+
+            .pricing-card.popular:hover {
+                transform: translateY(-10px);
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* === PLAN TOGGLE (Styled like tabs) === */
+        .plan-toggle-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.5rem;
+            border-radius: 50px;
+            width: max-content;
+            margin: 0 auto 2.5rem auto;
+            margin-bottom: 70px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .plan-toggle-container :hover {
+            transform: scale(1.05);
+            box-shadow: 0 25px 70px rgba(102, 126, 234, 0.3);
+            border-color: var(--primary-color);
+        }
+
+        .plan-toggle-container label {
+            margin: 0;
+            cursor: pointer;
+            border-radius: 50px;
+            padding: 0.6rem 1.4rem;
+            font-weight: 500;
+            color: #fff;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            user-select: none;
+        }
+
+        .plan-toggle-container input[type="radio"] {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            border: 2px solid var(--secondary-color);
+            border-radius: 50%;
+            cursor: pointer;
+            margin-right: 6px;
+            position: relative;
+            top: 2px;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .plan-toggle-container input[type="radio"]:checked {
+            background-color: var(--accent-color);
+            box-shadow: inset 0 0 0 4px var(--accent-color);
+        }
+
+        .plan-toggle-container .savings {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        :root.light-mode {
+            --background-dark: #FFFFFF;
+            /* page bg */
+            --card-dark: #F5F5F5;
+            /* cards / navbar */
+            --text-white: #000000;
+            /* main text */
+            --text-gray: #444444;
+            /* secondary text */
+
+            --gradient-dark: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+        }
+
+        :root.light-mode .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid rgba(102, 126, 234, 0.3);
+        }
+
+        :root.light-mode .footer {
+            background: rgba(255, 255, 255, 0.95);
+            border-top: 1px solid rgba(102, 126, 234, 0.3);
+        }
+
+        #themeIcon.bi-moon-fill {
+            color: #000000;
+        }
+
+        .ai-icons {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .ai-icons i {
+            position: absolute;
+            color: var(--primary-color);
+            opacity: 0.12;
+            animation: floatIcons linear infinite;
+        }
+
+        /* 15 icons with unique positions, sizes, delays, durations */
+        .ai-icons i:nth-child(1) {
+            left: 8%;
+            font-size: 60px;
+            animation-delay: 0s;
+            animation-duration: 18s;
+        }
+
+        .ai-icons i:nth-child(2) {
+            left: 18%;
+            font-size: 40px;
+            animation-delay: 2s;
+            animation-duration: 10s;
+            color: var(--accent-color);
+        }
+
+        .ai-icons i:nth-child(3) {
+            left: 28%;
+            font-size: 70px;
+            animation-delay: 4s;
+            animation-duration: 20s;
+        }
+
+        .ai-icons i:nth-child(4) {
+            left: 38%;
+            font-size: 32px;
+            animation-delay: 1s;
+            animation-duration: 12s;
+            color: var(--secondary-color);
+        }
+
+        .ai-icons i:nth-child(5) {
+            left: 48%;
+            font-size: 90px;
+            animation-delay: 3s;
+            animation-duration: 25s;
+        }
+
+        .ai-icons i:nth-child(6) {
+            left: 58%;
+            font-size: 45px;
+            animation-delay: 7s;
+            animation-duration: 15s;
+        }
+
+        .ai-icons i:nth-child(7) {
+            left: 68%;
+            font-size: 36px;
+            animation-delay: 15s;
+            animation-duration: 45s;
+        }
+
+        .ai-icons i:nth-child(8) {
+            left: 78%;
+            font-size: 100px;
+            animation-delay: 2s;
+            animation-duration: 35s;
+        }
+
+        .ai-icons i:nth-child(9) {
+            left: 88%;
+            font-size: 50px;
+            animation-delay: 4s;
+            animation-duration: 20s;
+        }
+
+        .ai-icons i:nth-child(10) {
+            left: 12%;
+            font-size: 55px;
+            animation-delay: 5s;
+            animation-duration: 22s;
+        }
+
+        .ai-icons i:nth-child(11) {
+            left: 32%;
+            font-size: 42px;
+            animation-delay: 6s;
+            animation-duration: 16s;
+            color: var(--accent-color);
+        }
+
+        .ai-icons i:nth-child(12) {
+            left: 52%;
+            font-size: 65px;
+            animation-delay: 8s;
+            animation-duration: 28s;
+        }
+
+        .ai-icons i:nth-child(13) {
+            left: 72%;
+            font-size: 48px;
+            animation-delay: 10s;
+            animation-duration: 20s;
+            color: var(--secondary-color);
+        }
+
+        .ai-icons i:nth-child(14) {
+            left: 82%;
+            font-size: 75px;
+            animation-delay: 12s;
+            animation-duration: 24s;
+        }
+
+        .ai-icons i:nth-child(15) {
+            left: 92%;
+            font-size: 38px;
+            animation-delay: 14s;
+            animation-duration: 18s;
+        }
+
+        /* Floating upwards like bubbles */
+        @keyframes floatIcons {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.12;
+            }
+
+            50% {
+                opacity: 0.2;
+            }
+
+            100% {
+                transform: translateY(-120px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        body {
+            background: var(--background-dark);
+            position: relative;
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- === NAVIGATION === -->
+    <header class="header">
+        <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+            <div class="container">
+                <!-- Logo -->
+                <a class="navbar-brand" href="index.html">
+                    <img src="/Images/perspective-ai.png" alt="Perspective AI Logo">
+                    Perspective AI
+                </a>
+
+                <!-- Mobile Toggle -->
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+
+                <!-- Navigation Menu -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/pages.html/AboutUs.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/pages.html/services.html">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/pages.html/ai-tools.html">AI Tools</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/pages.html/pricing.html">Pricing</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/pages.html/contact.html">Contact</a>
+                        </li>
+                    </ul>
+
+                    <button class="btn btn-outline-light me-3" id="themeToggle">
+                        <i class="bi bi-sun-fill" id="themeIcon"></i>
+                    </button>
+                    <!-- Get Started Button -->
+                    <a href="contact.html" class="btn-get-started">
+                        Get Started
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- === PAGE HEADER === -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Choose Your AI Plan</h1>
+            <p class="page-subtitle">
+                Flexible pricing designed to grow with your business. Start free and upgrade anytime.
+            </p>
+        </div>
+    </section>
+
+
+    
+ <!--curser-->
+
+
+  
+    <div class="pointer" id="movee"></div>
+  
+
+
+  
+    <div class="ptblr" id="mov1"></div>
+   
+
+    <!-- === PLAN TOGGLE === -->
+    <section class="section">
+        <div class="container">
+            <div class="plan-toggle-container">
+                <label>
+                    <input type="radio" name="billingCycle" value="monthly" checked />
+                    <span>Monthly</span>
+                </label>
+
+                <label>
+                    <input type="radio" name="billingCycle" value="yearly" />
+                    <span>Yearly <span class="savings"><strong>Save 17%</strong></span></span>
+                </label>
+            </div>
+        </div>
+
+        <!-- === PRICING PLANS === -->
+        <div class="container">
+            <div class="row justify-content-center">
+
+                <!-- Starter Plan -->
+                <div class="col-lg-4 col-md-6 mb-2">
+                    <div class="pricing-card">
+                        <h3 class="plan-name">Starter</h3>
+                        <div class="plan-price" data-monthly="₹2,999" data-yearly="₹29,990">₹2,999</div>
+                        <div class="plan-period">per month</div>
+                        <p class="plan-description">
+                            Perfect for small businesses and startups looking to implement basic AI solutions.
+                        </p>
+                        <ul class="plan-features">
+                            <li><i class="bi bi-check-circle"></i> AI Text Generator (10,000 words/month)</li>
+                            <li><i class="bi bi-check-circle"></i> Basic AI Chatbot</li>
+                            <li><i class="bi bi-check-circle"></i> 50 Image Generations/month</li>
+                            <li><i class="bi bi-x-circle text-danger"></i> AI Video Generator</li>
+                            <li><i class="bi bi-x-circle text-danger"></i> AI Audio Generator</li>
+                            <li><i class="bi bi-check-circle"></i> Email Support (24–48 hrs)</li>
+                            <li><i class="bi bi-check-circle"></i> 2 API Integrations</li>
+                            <li><i class="bi bi-check-circle"></i> Basic Analytics Dashboard</li>
+                            <li><i class="bi bi-x-circle text-danger"></i> Custom AI Models</li>
+                            <li><i class="bi bi-x-circle text-danger"></i> Custom Integrations</li>
+                            <li><i class="bi bi-x-circle text-danger"></i> Custom Branding</li>
+                            <li><i class="bi bi-x-circle text-danger"></i> API Access & Documentation</li>
+                            <li><i class="bi bi-x-circle text-danger"></i> SLA Guarantee</li>
+                            <li><i class="bi bi-check-circle"></i> 30 Days Data Retention</li>
+                            <li><i class="bi bi-check-circle"></i> 1 User</li>
+                            <li><i class="bi bi-x-circle text-danger"></i> On-premise Deployment</li>
+                        </ul>
+                        <a href="contact.html" class="plan-cta">Get Started</a>
+                    </div>
+                </div>
+
+                <!-- Professional Plan -->
+                <div class="col-lg-4 col-md-6 mb-2">
+                    <div class="pricing-card popular">
+                        <h3 class="plan-name">Professional</h3>
+                        <div class="plan-price" data-monthly="₹7,999" data-yearly="₹79,990">₹7,999</div>
+                        <div class="plan-period">per month</div>
+                        <p class="plan-description">
+                            Ideal for growing businesses requiring advanced AI capabilities and integrations.
+                        </p>
+                        <ul class="plan-features">
+                            <li><i class="bi bi-check-circle"></i> AI Text Generator (50,000 words/month)</li>
+                            <li><i class="bi bi-check-circle"></i> Advanced AI Chatbot with Memory</li>
+                            <li><i class="bi bi-check-circle"></i> 500 Image Generations/month</li>
+                            <li><i class="bi bi-check-circle"></i> AI Video Generator (10 videos/month)</li>
+                            <li><i class="bi bi-check-circle"></i> AI Audio Generator</li>
+                            <li><i class="bi bi-check-circle"></i> Priority Support (4–12 hrs)</li>
+                            <li><i class="bi bi-check-circle"></i> 10 API Integrations</li>
+                            <li><i class="bi bi-check-circle"></i> Advanced Analytics & Insights</li>
+                            <li><i class="bi bi-x-circle text-danger"></i> Custom AI Models</li>
+                            <li><i class="bi bi-x-circle text-danger"></i> Custom Integrations</li>
+                            <li><i class="bi bi-check-circle"></i> Custom Branding</li>
+                            <li><i class="bi bi-check-circle"></i> Full API Access & Documentation</li>
+                            <li><i class="bi bi-check-circle"></i> 99.5% Uptime SLA</li>
+                            <li><i class="bi bi-check-circle"></i> 90 Days Data Retention</li>
+                            <li><i class="bi bi-check-circle"></i> 5 Users</li>
+                            <li><i class="bi bi-x-circle text-danger"></i> On-premise Deployment</li>
+                        </ul>
+                        <a href="contact.html" class="plan-cta">Get Started</a>
+                    </div>
+                </div>
+
+                <!-- Enterprise Plan -->
+                <div class="col-lg-4 col-md-6 mb-2">
+                    <div class="pricing-card">
+                        <h3 class="plan-name">Enterprise</h3>
+                        <div class="plan-price" data-monthly="Custom" data-yearly="Custom">Custom</div>
+                        <div class="plan-period">pricing</div>
+                        <p class="plan-description">
+                            Tailored solutions for large enterprises with specific AI requirements and compliance needs.
+                        </p>
+                        <ul class="plan-features">
+                            <li><i class="bi bi-check-circle"></i> Unlimited AI Text Generation</li>
+                            <li><i class="bi bi-check-circle"></i> Enterprise AI Chatbot with Custom Training</li>
+                            <li><i class="bi bi-check-circle"></i> Unlimited Image Generations</li>
+                            <li><i class="bi bi-check-circle"></i> Unlimited Video & Audio Generation</li>
+                            <li><i class="bi bi-check-circle"></i> AI Personal Assistant</li>
+                            <li><i class="bi bi-check-circle"></i> 24/7 Dedicated Support</li>
+                            <li><i class="bi bi-check-circle"></i> Unlimited API Integrations + Webhooks</li>
+                            <li><i class="bi bi-check-circle"></i> Enterprise Analytics + Custom Reports</li>
+                            <li><i class="bi bi-check-circle"></i> Custom AI Models</li>
+                            <li><i class="bi bi-check-circle"></i> Custom Integrations & Development</li>
+                            <li><i class="bi bi-check-circle"></i> Custom Branding</li>
+                            <li><i class="bi bi-check-circle"></i> Full API Access + Webhook Support</li>
+                            <li><i class="bi bi-check-circle"></i> 99.9% Uptime SLA + Penalty Credits</li>
+                            <li><i class="bi bi-check-circle"></i> Unlimited Data Retention + Backup</li>
+                            <li><i class="bi bi-check-circle"></i> Unlimited Users</li>
+                            <li><i class="bi bi-check-circle"></i> On-premise Deployment</li>
+                        </ul>
+                        <a href="contact.html" class="plan-cta">Contact Sales</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Get all price elements and radios
+        const priceElements = document.querySelectorAll(".plan-price");
+        const periodElements = document.querySelectorAll(".plan-period");
+        const radios = document.querySelectorAll("input[name='billingCycle']");
+
+        radios.forEach(radio => {
+            radio.addEventListener("change", () => {
+                const isYearly = radio.value === "yearly";
+
+                priceElements.forEach(priceEl => {
+                    const monthlyPrice = priceEl.getAttribute("data-monthly");
+                    const yearlyPrice = priceEl.getAttribute("data-yearly");
+
+                    // Update price text
+                    priceEl.textContent = isYearly ? yearlyPrice : monthlyPrice;
+                });
+
+                periodElements.forEach(periodEl => {
+                    periodEl.textContent = isYearly ? "per year" : "per month";
+                });
+            });
+        });
+    </script>
+
+
+
+    <!-- === API PRICING === -->
+    <section class="section" style="background: rgba(26, 26, 46, 0.3);">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="section-title">API Pricing</h2>
+                    <p class="section-subtitle">
+                        Pay-as-you-use pricing for our AI APIs with no monthly commitments
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Text & Chat API -->
+                <div class="col-lg-4 mb-4">
+                    <div class="pricing-card">
+                        <h3 class="plan-name">Text & Chat API</h3>
+                        <div class="plan-price">₹0.20</div>
+                        <div class="plan-period">per 1,000 tokens</div>
+                        <p class="plan-description">
+                            High-quality text generation and conversational AI capabilities.
+                        </p>
+                        <ul class="plan-features">
+                            <li><i class="bi bi-check-circle text-success"></i> GPT-4 & Gemini Models</li>
+                            <li><i class="bi bi-check-circle text-success"></i> Context-aware responses</li>
+                            <li><i class="bi bi-check-circle text-success"></i> Multiple output formats</li>
+                            <li><i class="bi bi-check-circle text-success"></i> Real-time streaming</li>
+                            <li><i class="bi bi-x-circle text-danger"></i> Image Generation not included</li>
+                            <li><i class="bi bi-x-circle text-danger"></i> Video & Audio Generation not included</li>
+                        </ul>
+                        <a href="contact.html" class="plan-cta secondary">Start Building</a>
+                    </div>
+                </div>
+
+                <!-- Media Generation API -->
+                <div class="col-lg-4 mb-4">
+                    <div class="pricing-card">
+                        <h3 class="plan-name">Media Generation API</h3>
+                        <div class="plan-price">₹50</div>
+                        <div class="plan-period">per video/audio minute</div>
+                        <p class="plan-description">
+                            Advanced video and audio generation with professional quality output.
+                        </p>
+                        <ul class="plan-features">
+                            <li><i class="bi bi-check-circle text-success"></i> HD Video Generation</li>
+                            <li><i class="bi bi-check-circle text-success"></i> Natural Voice Synthesis</li>
+                            <li><i class="bi bi-check-circle text-success"></i> Music Composition</li>
+                            <li><i class="bi bi-check-circle text-success"></i> Multiple Format Export</li>
+                            <li><i class="bi bi-x-circle text-danger"></i> Text & Chat API features not included</li>
+                            <li><i class="bi bi-x-circle text-danger"></i> Image Generation not included</li>
+                        </ul>
+                        <a href="contact.html" class="plan-cta secondary">Start Building</a>
+                    </div>
+                </div>
+
+                <!-- Image Generation API -->
+                <div class="col-lg-4 mb-4">
+                    <div class="pricing-card">
+                        <h3 class="plan-name">Image Generation API</h3>
+                        <div class="plan-price">₹10</div>
+                        <div class="plan-period">per image</div>
+                        <p class="plan-description">
+                            Generate high-quality AI images from text prompts with customizable styles.
+                        </p>
+                        <ul class="plan-features">
+                            <li><i class="bi bi-check-circle text-success"></i> Multiple Model Styles (Realistic, Anime,
+                                3D)</li>
+                            <li><i class="bi bi-check-circle text-success"></i> Prompt & Negative Prompt Support</li>
+                            <li><i class="bi bi-check-circle text-success"></i> HD and 4K Output Options</li>
+                            <li><i class="bi bi-check-circle text-success"></i> API and Webhook Access</li>
+                            <li><i class="bi bi-x-circle text-danger"></i> Video & Audio Generation not included</li>
+                            <li><i class="bi bi-x-circle text-danger"></i> Text & Chat API features not included</li>
+                        </ul>
+                        <a href="contact.html" class="plan-cta secondary">Start Building</a>
+                    </div>
+                </div>
+
+                <!-- Document Analysis API -->
+                <div class="col-lg-4 mb-4">
+                    <div class="pricing-card">
+                        <h3 class="plan-name">Document Analysis API</h3>
+                        <div class="plan-price">₹2.00</div>
+                        <div class="plan-period">per page</div>
+                        <p class="plan-description">
+                            Extract structured data, entities, and insights from PDFs, images, and scanned docs.
+                        </p>
+                        <ul class="plan-features">
+                            <li><i class="bi bi-check-circle text-success"></i> OCR & Layout Detection</li>
+                            <li><i class="bi bi-check-circle text-success"></i> Table & Form Parsing</li>
+                            <li><i class="bi bi-check-circle text-success"></i> Named Entity Recognition</li>
+                            <li><i class="bi bi-check-circle text-success"></i> JSON Output Format</li>
+                            <li><i class="bi bi-x-circle text-danger"></i> Media Generation not included</li>
+                            <li><i class="bi bi-x-circle text-danger"></i> Chat API features not included</li>
+                        </ul>
+                        <a href="contact.html" class="plan-cta secondary">Start Building</a>
+                    </div>
+                </div>
+
+                <!-- Translation API -->
+                <div class="col-lg-4 mb-4">
+                    <div class="pricing-card">
+                        <h3 class="plan-name">Translation API</h3>
+                        <div class="plan-price">₹0.10</div>
+                        <div class="plan-period">per 100 words</div>
+                        <p class="plan-description">
+                            Fast and accurate language translation across 100+ languages with context awareness.
+                        </p>
+                        <ul class="plan-features">
+                            <li><i class="bi bi-check-circle text-success"></i> 100+ Languages</li>
+                            <li><i class="bi bi-check-circle text-success"></i> Domain-Specific Translation</li>
+                            <li><i class="bi bi-check-circle text-success"></i> Tone & Formality Adjustment</li>
+                            <li><i class="bi bi-check-circle text-success"></i> Supports Real-Time Translation</li>
+                            <li><i class="bi bi-x-circle text-danger"></i> Image & Media Generation not included</li>
+                        </ul>
+                        <a href="contact.html" class="plan-cta secondary">Start Building</a>
+                    </div>
+                </div>
+
+                <!-- Custom AI Model API -->
+                <div class="col-lg-4 mb-4">
+                    <div class="pricing-card">
+                        <h3 class="plan-name">Custom AI Model API</h3>
+                        <div class="plan-price">₹5.00</div>
+                        <div class="plan-period">per 1,000 tokens</div>
+                        <p class="plan-description">
+                            Host, manage, and deploy your own AI models with secure, scalable infrastructure.
+                        </p>
+                        <ul class="plan-features">
+                            <li><i class="bi bi-check-circle text-success"></i> BYO Model (HuggingFace, ONNX, etc.)</li>
+                            <li><i class="bi bi-check-circle text-success"></i> Fine-tuning Support</li>
+                            <li><i class="bi bi-check-circle text-success"></i> GPU Acceleration</li>
+                            <li><i class="bi bi-check-circle text-success"></i> Secure Private Inference</li>
+                            <li><i class="bi bi-x-circle text-danger"></i> Media Generation not included</li>
+                            <li><i class="bi bi-x-circle text-danger"></i> Translation API features not included</li>
+                        </ul>
+                        <a href="contact.html" class="plan-cta secondary">Start Building</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- === AI PLATFORM COMPARISON === -->
+    <section class="section" style="background: rgba(26, 26, 46, 0.3);">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="section-title">AI Platform Comparison</h2>
+                    <p class="section-subtitle">
+                        See how <strong>Perspective AI</strong> stacks up against top competitors
+                    </p>
+                </div>
+            </div>
+
+            <div class="comparison-table mt-4">
+                <div class="table-responsive">
+                    <table class="table table-bordered text-white text-center">
+                        <thead>
+                            <tr>
+                                <th class="text-start">Feature</th>
+                                <th>Perspective AI<br><small>(Starter ₹2,999 / Pro ₹7,999 / Enterprise - Custom)</small>
+                                </th>
+                                <th>Anthropic Claude<br><small>(Pro / Max)</small></th>
+                                <th>OpenAI GPT API<br><small>(Pay-as-you-go)</small></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-start">Pricing Model</td>
+                                <td>Fixed plans + custom pricing</td>
+                                <td>Subscription plans ($20 – $200/mo)</td>
+                                <td>Pay-as-you-go pricing</td>
+                            </tr>
+                            <tr>
+                                <td class="text-start">Text Generation</td>
+                                <td>10K – Unlimited tokens/month</td>
+                                <td>Included with tier-based limits</td>
+                                <td>$0.05 per 1K input tokens, $0.40 per 1K output tokens</td>
+                            </tr>
+                            <tr>
+                                <td class="text-start">Image Generation</td>
+                                <td><i class="bi bi-check-circle text-success"></i> Included</td>
+                                <td><i class="bi bi-x-circle text-danger"></i> Not available</td>
+                                <td><i class="bi bi-x-circle text-danger"></i> Not available</td>
+                            </tr>
+                            <tr>
+                                <td class="text-start">Video Generation</td>
+                                <td><i class="bi bi-check-circle text-success"></i> Included (Pro+ plans)</td>
+                                <td><i class="bi bi-x-circle text-danger"></i> Not available</td>
+                                <td><i class="bi bi-x-circle text-danger"></i> Not available</td>
+                            </tr>
+                            <tr>
+                                <td class="text-start">Audio Generation</td>
+                                <td><i class="bi bi-check-circle text-success"></i> Available (Pro+ plans)</td>
+                                <td><i class="bi bi-x-circle text-danger"></i> Not available</td>
+                                <td><i class="bi bi-check-circle text-success"></i> Available</td>
+                            </tr>
+                            <tr>
+                                <td class="text-start">Custom AI Models</td>
+                                <td><i class="bi bi-x-circle text-danger"></i> Not included (Starter & Pro)<br>
+                                    <i class="bi bi-check-circle text-success"></i> Available (Enterprise)
+                                </td>
+                                <td><i class="bi bi-x-circle text-danger"></i> Not included (Pro)<br>
+                                    <i class="bi bi-check-circle text-success"></i> Available (Enterprise)
+                                </td>
+                                <td><i class="bi bi-check-circle text-success"></i> Fine-tuning available</td>
+                            </tr>
+                            <tr>
+                                <td class="text-start">Analytics & Reporting</td>
+                                <td><i class="bi bi-check-circle text-success"></i> Basic (Starter)<br>
+                                    <i class="bi bi-check-circle text-success"></i> Advanced (Pro)<br>
+                                    <i class="bi bi-check-circle text-success"></i> Custom (Enterprise)
+                                </td>
+                                <td><i class="bi bi-x-circle text-danger"></i> Not available</td>
+                                <td><i class="bi bi-check-circle text-success"></i> Basic usage logs</td>
+                            </tr>
+                            <tr>
+                                <td class="text-start">Support Level</td>
+                                <td>Email support (Starter)<br>
+                                    <i class="bi bi-check-circle text-success"></i> Priority support (Pro)<br>
+                                    <i class="bi bi-check-circle text-success"></i> 24/7 + Dedicated Manager
+                                    (Enterprise)
+                                </td>
+                                <td>Email / Priority support (Max)</td>
+                                <td>Email support</td>
+                            </tr>
+                            <tr>
+                                <td class="text-start">Team Members</td>
+                                <td>1 user (Starter)<br>5 users (Pro)<br>Unlimited users (Enterprise)</td>
+                                <td>Subscription add-on ($30/user/month)</td>
+                                <td>Access via API keys</td>
+                            </tr>
+                            <tr>
+                                <td class="text-start">API Access</td>
+                                <td><i class="bi bi-x-circle text-danger"></i> Not included (Starter)<br>
+                                    <i class="bi bi-check-circle text-success"></i> Included (Pro & Enterprise)
+                                </td>
+                                <td><i class="bi bi-check-circle text-success"></i> Included</td>
+                                <td><i class="bi bi-check-circle text-success"></i> Included</td>
+                            </tr>
+                            <tr>
+                                <td class="text-start">Webhooks & Integrations</td>
+                                <td><i class="bi bi-x-circle text-danger"></i> Not available (Starter & Pro)<br>
+                                    <i class="bi bi-check-circle text-success"></i> Available (Enterprise)
+                                </td>
+                                <td><i class="bi bi-x-circle text-danger"></i> Not available</td>
+                                <td><i class="bi bi-x-circle text-danger"></i> Not available</td>
+                            </tr>
+                            <tr>
+                                <td class="text-start">Compliance & Security</td>
+                                <td>Standard compliance (Starter)<br>Enterprise-grade (Enterprise)</td>
+                                <td>Advanced compliance (Enterprise)</td>
+                                <td>Custom compliance based on usage</td>
+                            </tr>
+                            <tr>
+                                <td class="text-start">SLA Guarantee</td>
+                                <td><i class="bi bi-x-circle text-danger"></i> No SLA (Starter)<br>
+                                    99.5% uptime (Pro)<br>
+                                    99.9% uptime + penalty credits (Enterprise)</td>
+                                <td>Not specified</td>
+                                <td>No public SLA</td>
+                            </tr>
+                            <tr>
+                                <td class="text-start">Free Trial</td>
+                                <td><i class="bi bi-check-circle text-success"></i> 14 days (All plans)</td>
+                                <td><i class="bi bi-x-circle text-danger"></i> Not available</td>
+                                <td><i class="bi bi-x-circle text-danger"></i> Not available</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- === PRICING FAQ === -->
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="section-title">Pricing FAQs</h2>
+                    <p class="section-subtitle">
+                        Common questions about our pricing and billing
+                    </p>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="faq-item">
+                        <button class="faq-question" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                            Can I change my plan anytime?
+                            <i class="bi bi-dash-lg"></i>
+                        </button>
+                        <div class="collapse faq-answer show" id="faq1">
+                            Yes, you can upgrade or downgrade your plan at any time. Changes take effect immediately,
+                            and we'll prorate the billing accordingly. There are no penalties for changing plans.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                            What payment methods do you accept?
+                            <i class="bi bi-plus-lg"></i>
+                        </button>
+                        <div class="collapse faq-answer" id="faq2">
+                            We accept all major credit cards (Visa, MasterCard, American Express), bank transfers, and
+                            digital payment methods like UPI, PayPal, and Razorpay for Indian customers.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                            Is there a free trial available?
+                            <i class="bi bi-plus-lg"></i>
+                        </button>
+                        <div class="collapse faq-answer" id="faq3">
+                            Yes, we offer a 14-day free trial for all plans. You can test our AI services with limited
+                            usage to see if they meet your needs before committing to a paid plan.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                            Do you offer custom enterprise pricing?
+                            <i class="bi bi-plus-lg"></i>
+                        </button>
+                        <div class="collapse faq-answer" id="faq4">
+                            Yes, we provide custom pricing for enterprise clients with specific requirements,
+                            high-volume usage, or special compliance needs. Contact our sales team for a personalized
+                            quote.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                            What happens if I exceed my plan limits?
+                            <i class="bi bi-plus-lg"></i>
+                        </button>
+                        <div class="collapse faq-answer" id="faq5">
+                            If you exceed your plan limits, we'll notify you and offer options to upgrade your plan or
+                            purchase additional credits. Services won't be interrupted, but overage charges may apply at
+                            standard rates.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === FOOTER === -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="/index.html">Home</a>
+                <a href="/pages.html/AboutUs.html">About</a>
+                <a href="/pages.html/services.html">Services</a>
+                <a href="/pages.html/ai-tools.html">Ai Tools</a>
+                <a href="/pages.html/contact.html active">Contact</a>
+                <a href="/pages.html/pricing.html">Pricing</a>
+            </div>
+            <div class="footer-text">
+                <p>&copy; 2025 Perspective AI. All rights reserved. | Pune,
+                    Maharashtra, India</p>
+                <p>Leading AI Solutions Provider | Transforming Businesses
+                    with Artificial Intelligence</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/script.js/toggle.js"></script>
+    <script src="/script.js/faq_icon_toggle.js"></script>
+</body>
+
+</html>
