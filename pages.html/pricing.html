@@ -306,30 +306,7 @@
         </div>
     </section>
 
-    <script>
-        // Get all price elements and radios
-        const priceElements = document.querySelectorAll(".plan-price");
-        const periodElements = document.querySelectorAll(".plan-period");
-        const radios = document.querySelectorAll("input[name='billingCycle']");
-
-        radios.forEach(radio => {
-            radio.addEventListener("change", () => {
-                const isYearly = radio.value === "yearly";
-
-                priceElements.forEach(priceEl => {
-                    const monthlyPrice = priceEl.getAttribute("data-monthly");
-                    const yearlyPrice = priceEl.getAttribute("data-yearly");
-
-                    // Update price text
-                    priceEl.textContent = isYearly ? yearlyPrice : monthlyPrice;
-                });
-
-                periodElements.forEach(periodEl => {
-                    periodEl.textContent = isYearly ? "per year" : "per month";
-                });
-            });
-        });
-    </script>
+    
 
 
 
@@ -674,8 +651,8 @@
                 <a href="/pages.html/AboutUs.html">About</a>
                 <a href="/pages.html/services.html">Services</a>
                 <a href="/pages.html/ai-tools.html">Ai Tools</a>
-                <a href="/pages.html/contact.html active">Contact</a>
-                <a href="/pages.html/pricing.html">Pricing</a>
+                <a href="/pages.html/contact.html ">Contact</a>
+                <a href="/pages.html/pricing.html active">Pricing</a>
             </div>
             <div class="footer-text">
                 <p>&copy; 2025 Perspective AI. All rights reserved. | Pune,
@@ -692,7 +669,30 @@
         gsap.registerPlugin(ScrollTrigger);
     </script>
     <script src="/script.js/pricingani.js"></script>
+    <script>
+        // Get all price elements and radios
+        const priceElements = document.querySelectorAll(".plan-price");
+        const periodElements = document.querySelectorAll(".plan-period");
+        const radios = document.querySelectorAll("input[name='billingCycle']");
 
+        radios.forEach(radio => {
+            radio.addEventListener("change", () => {
+                const isYearly = radio.value === "yearly";
+
+                priceElements.forEach(priceEl => {
+                    const monthlyPrice = priceEl.getAttribute("data-monthly");
+                    const yearlyPrice = priceEl.getAttribute("data-yearly");
+
+                    // Update price text
+                    priceEl.textContent = isYearly ? yearlyPrice : monthlyPrice;
+                });
+
+                periodElements.forEach(periodEl => {
+                    periodEl.textContent = isYearly ? "per year" : "per month";
+                });
+            });
+        });
+    </script>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

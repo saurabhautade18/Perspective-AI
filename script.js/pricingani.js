@@ -53,26 +53,13 @@ gsap.fromTo(
 
 
 
-gsap.utils.toArray(".pricing-card").forEach((card, i) => {
-  ScrollTrigger.create({
-    trigger: card,
-    start: "top 85%",   // when the card enters viewport
-    end: "bottom 20%",
-    once: true,         // animate only once
-    onEnter: () => {
-      gsap.fromTo(
-        card,
-        { y: 50, opacity:0, scale: 0.9 },
-        {
-          duration: 2,
-          y: 0,
-          opacity: 1,
-          scale: 1,
-          ease: "power3.out",
-          delay: i * 0.2 // stagger effect
-        }
-      );
-    }
+// Hover zoom for service cards
+document.querySelectorAll(".pricing-card").forEach((card) => {
+  card.addEventListener("mouseenter", () => {
+    gsap.to(card, { scale: 1.02, duration: 0.1, ease: "linear" });
+  });
+  card.addEventListener("mouseleave", () => {
+    gsap.to(card, { scale: 1, duration: 0.1, ease: "linear" });
   });
 });
 
