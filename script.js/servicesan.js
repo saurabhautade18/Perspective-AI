@@ -35,15 +35,15 @@ gsap.utils.toArray(".service-card").forEach((card, i) => {
 gsap.utils.toArray(".faq-item").forEach((item) => {
   gsap.fromTo(
     item,
-    { opacity: 0, y: 60 }, // start state (hidden + pushed down)
+    { opacity: 0, y: 100 }, // start state (hidden + pushed down)
     {
       opacity: 1,
       y: 0, // end state (visible + natural position)
-      duration: 1.7,
+      duration: 2,
       ease: "power2.out",
       scrollTrigger: {
         trigger: item,
-        start: "top 90%",
+        start: "top 85%",
         toggleActions: "play none none reverse",
       },
     }

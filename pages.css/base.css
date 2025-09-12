@@ -726,7 +726,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f0f0f0; /* scrollbar track color */
+  background: var(--accent-color); /* scrollbar track color */
 }
 
 ::-webkit-scrollbar-thumb {
