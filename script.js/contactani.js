@@ -75,14 +75,3 @@
     },
   });
 
-  // Animate Footer
-  gsap.from(".footer", {
-    y: 100,
-    opacity: 0,
-    duration: 2.2,
-    ease: "power3.out",
-    scrollTrigger: {
-      trigger: ".footer",
-      start: "top 95%",
-    },
-  });
