@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Tools - perspective-ai</title>
-    
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/pages.css/base.css">
-    <link rel="stylesheet" href="/pages.css/ai-tools.css">
-     <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-    />
-    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>AI Tools - perspective-ai</title>
 
-</head>
-<body>
+        <!-- Bootstrap CSS -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet">
+        <!-- Bootstrap Icons -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+            rel="stylesheet">
+        <!-- Google Fonts -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="/pages.css/base.css">
+        <link rel="stylesheet" href="/pages.css/ai-tools.css">
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
-    <div class="ai-icons">
+    </head>
+    <body>
+
+        <div class="ai-icons">
             <i class="bi bi-cpu"></i>
             <i class="bi bi-gear-fill"></i>
             <i class="bi bi-lightbulb-fill"></i>
@@ -40,8 +44,8 @@
             <i class="bi bi-graph-up-arrow"></i>
         </div>
 
-    <!-- === NAVIGATION === -->
-    <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+        <!-- === NAVIGATION === -->
+        <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
             <div class="container">
                 <!-- Logo -->
                 <a class="navbar-brand" href="index.html">
@@ -98,51 +102,57 @@
             </div>
         </nav>
 
+        <!-- Chatbot Widget -->
+        <!-- Chatbot Toggle Button -->
+        <button id="chatbotToggle" class="chatbot-toggle">
+            <i class="bi bi-chat-dots-fill"></i>
+            <span id="chatText">Chat with us</span>
+        </button>
 
+        <!-- Chatbot Window -->
+        <div id="chatbotWindow" class="chatbot-window d-none">
+            <div class="chatbot-header">
+                <span>AI Contact Bot</span>
+                <button class="chatbot-close" id="chatbotClose">✖</button>
+            </div>
+            <div class="chatbot-body" id="chatbotMessages">
+                <div class="chatbot-msg bot">👋 Hi! I’m here to help. What’s
+                    your question?</div>
+            </div>
+            <div class="chatbot-footer">
+                <input type="text" id="chatbotInput"
+                    placeholder="Type a message...">
+                <button id="chatbotSend">Send</button>
+            </div>
+        </div>
 
-     <!-- Chatbot Widget -->
- <!-- Chatbot Toggle Button -->
-<button id="chatbotToggle" class="chatbot-toggle">
-  <i class="bi bi-chat-dots-fill"></i>
-  <span id="chatText">Chat with us</span>
-</button>
+        <!-- Vertical Right-Center Feedback Button -->
+        <button class="feedback-toggle" id="feedbackToggle">
+            Feedback <i class="bi bi-chat-dots"></i>
+        </button>
 
-<!-- Chatbot Window -->
-<div id="chatbotWindow" class="chatbot-window d-none">
-  <div class="chatbot-header">
-    <span>AI Contact Bot</span>
-    <button class="chatbot-close" id="chatbotClose">✖</button>
-  </div>
-  <div class="chatbot-body" id="chatbotMessages">
-    <div class="chatbot-msg bot">👋 Hi! I’m here to help. What’s your question?</div>
-  </div>
-  <div class="chatbot-footer">
-    <input type="text" id="chatbotInput" placeholder="Type a message...">
-    <button id="chatbotSend">Send</button>
-  </div>
-</div>
+        <!-- Feedback Modal -->
+        <div class="feedback-modal" id="feedbackModal">
+            <div class="feedback-header">
+                <span>Perspective AI Feedback</span>
+                <button id="closeFeedback"><i class="bi bi-x"></i></button>
+            </div>
+            <div class="feedback-body">
+                <div class="feedback-option"><i class="bi bi-bug"></i> Bug
+                    Report</div>
+                <div class="feedback-option"><i class="bi bi-lightbulb"></i>
+                    Feature Request</div>
+                <div class="feedback-option"><i class="bi bi-star"></i> General
+                    Feedback</div>
+            </div>
 
-<!-- Vertical Right-Center Feedback Button -->
-<button class="feedback-toggle" id="feedbackToggle">
-   Feedback <i class="bi bi-chat-dots"></i>
-</button>
-
-<!-- Feedback Modal -->
-<div class="feedback-modal" id="feedbackModal">
-  <div class="feedback-header">
-    <span>Perspective AI Feedback</span>
-    <button id="closeFeedback"><i class="bi bi-x"></i></button>
-  </div>
-  <div class="feedback-body">
-    <div class="feedback-option"><i class="bi bi-bug"></i> Bug Report</div>
-    <div class="feedback-option"><i class="bi bi-lightbulb"></i> Feature Request</div>
-    <div class="feedback-option"><i class="bi bi-star"></i> General Feedback</div>
-  </div>
-
-  <div class="feedback-footer" style="display: flex; flex-direction: column; gap: 10px; padding: 16px;">
-    <textarea class="feedback-textarea" placeholder="Your feedback..." style="margin: 20px;"></textarea>
-    <button type="submit" class="feedback-submit" 
-    style="
+            <div class="feedback-footer"
+                style="display: flex; flex-direction: column; gap: 10px; padding: 16px;">
+                <textarea class="feedback-textarea"
+                    placeholder="Your feedback..."
+                    style="margin: 20px;"></textarea>
+                <button type="submit" class="feedback-submit"
+                    style="
         background: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
         color: #FFFFFF;
         border: none;
@@ -151,385 +161,437 @@
         font-size: 16px;
         font-weight: 600;
         cursor: pointer;
-        box-shadow: 0 6px 15px rgba(0,0,0,0.3);"
-        
-    
->
-  Submit Feedback
-</button>
-  </div>
-</div>
-
-<div class="social-flip">
-  <div class="social-inner">
-    <!-- Front -->
-    <div class="social-front">SOCIAL</div>
-    <!-- Back -->
-    <div class="social-back">
-      <a href="#"><i class="bi bi-instagram"></i></a>
-      <a href="#"><i class="bi bi-facebook"></i></a>
-      <a href="#"><i class="bi bi-whatsapp"></i></a>
-    </div>
-  </div>
-</div>
-
- <!--curser-->
-
-
- <!--curser-->
-
-
-  
-    <div class="pointer" id="movee"></div>
-  
-
-
-  
-    <div class="ptblr" id="mov1"></div>
-   
-
-
-    <!-- === PAGE HEADER === -->
-    
-
-    <!-- === AI TOOLS SHOWCASE === -->
-    <section class="section">
-        <div class="container">
-            <div class="row animate__animated animate__backInDown">
-                <div class="col-12 mt-4">
-                    <h2 class="section-title">Integrated AI Tools</h2>
-                    <p class="section-subtitle">
-                        Production-ready AI tools powered by industry-leading APIs and models
-                    </p>
-                </div>
+        box-shadow: 0 6px 15px rgba(0,0,0,0.3);">
+                    Submit Feedback
+                </button>
             </div>
-            
-            <div class="row">
-                <!-- Text API -->
-                <div class="col-lg-6 mb-4 animate__animated animate__backInDown">
-                    <div class="tool-card">
-                        <div class="tool-icon">
-                            <i class="bi bi-file-text"></i>
-                        </div>
-                        <h3 class="tool-title">Perspective Text API</h3>
-                        <p class="tool-description">
-                            Advanced text generation API powered by multiple AI models including GPT-4, Gemini, and custom-trained models for diverse content creation needs.
-                        </p>
-                        
-                        <div class="integration-badges">
-                            <span class="integration-badge">OpenAI GPT-4</span>
-                            <span class="integration-badge">Google Gemini</span>
-                            <span class="integration-badge">FlowiseAI</span>
-                        </div>
+        </div>
 
-                        <div class="api-section">
-                            <h6 class="api-title">
-                                <i class="bi bi-code-slash"></i>
-                                API Integration
-                            </h6>
-                            <div class="api-endpoint">
-                                POST https://api.perspective.ai/v1/text/generate<br>
-                                Content-Type: application/json<br>
-                                Authorization: Bearer YOUR_API_KEY
-                            </div>
-                            <div class="api-feature">
-                                <i class="bi bi-check-circle"></i>
-                                Multiple output formats (JSON, XML, Plain Text)
-                            </div>
-                            <div class="api-feature">
-                                <i class="bi bi-check-circle"></i>
-                                Custom tone and style parameters
-                            </div>
-                            <div class="api-feature">
-                                <i class="bi bi-check-circle"></i>
-                                Real-time streaming responses
-                            </div>
-                        </div>
-
-                 <a  class="tool-cta" onclick="accessApi()" >Access API</a>
-
-                    </div>
-                </div>
-
-                <!-- NeuralFlow Chat API -->
-                <div class="col-lg-6 mb-4 animate__animated animate__backInDown">
-                    <div class="tool-card">
-                        <div class="tool-icon">
-                            <i class="bi bi-chat-dots"></i>
-                        </div>
-                        <h3 class="tool-title">Perspective Chat API</h3>
-                        <p class="tool-description">
-                            Intelligent conversational AI API with context awareness, multi-turn conversations, and advanced reasoning capabilities for chatbots and virtual assistants.
-                        </p>
-                        
-                        <div class="integration-badges">
-                            <span class="integration-badge">OpenAI Assistants</span>
-                            <span class="integration-badge">Google Gemini</span>
-                            <span class="integration-badge">Grok AI</span>
-                        </div>
-
-                        <div class="api-section">
-                            <h6 class="api-title">
-                                <i class="bi bi-code-slash"></i>
-                                API Integration
-                            </h6>
-                            <div class="api-endpoint">
-                                POST https://api.perspective.ai/v1/chat/complete<br>
-                                Content-Type: application/json<br>
-                                Authorization: Bearer YOUR_API_KEY
-                            </div>
-                            <div class="api-feature">
-                                <i class="bi bi-check-circle"></i>
-                                Context-aware conversations
-                            </div>
-                            <div class="api-feature">
-                                <i class="bi bi-check-circle"></i>
-                                Function calling capabilities
-                            </div>
-                            <div class="api-feature">
-                                <i class="bi bi-check-circle"></i>
-                                Webhook integrations
-                            </div>
-                        </div>
-
-                         <a  class="tool-cta" onclick="accessApi()" >Access API</a>
-                    </div>
-                </div>
-
-                <!-- NeuralFlow Vision API -->
-                <div class="col-lg-6 mb-4 revealUp">
-                    <div class="tool-card">
-                        <div class="tool-icon">
-                            <i class="bi bi-camera-video"></i>
-                        </div>
-                        <h3 class="tool-title">Perspective Vision API</h3>
-                        <p class="tool-description">
-                            State-of-the-art video generation API using Luma Labs AI and other advanced models for creating professional videos from text descriptions and images.
-                        </p>
-                        
-                        <div class="integration-badges">
-                            <span class="integration-badge">Luma Labs AI</span>
-                            <span class="integration-badge">Runway ML</span>
-                            <span class="integration-badge">Pika Labs</span>
-                        </div>
-
-                        <div class="api-section">
-                            <h6 class="api-title">
-                                <i class="bi bi-code-slash"></i>
-                                API Integration
-                            </h6>
-                            <div class="api-endpoint">
-                                POST https://api.perspective.ai/v1/video/generate<br>
-                                Content-Type: multipart/form-data<br>
-                                Authorization: Bearer YOUR_API_KEY
-                            </div>
-                            <div class="api-feature">
-                                <i class="bi bi-check-circle"></i>
-                                Text-to-video generation
-                            </div>
-                            <div class="api-feature">
-                                <i class="bi bi-check-circle"></i>
-                                Image-to-video conversion
-                            </div>
-                            <div class="api-feature">
-                                <i class="bi bi-check-circle"></i>
-                                Custom resolution and duration
-                            </div>
-                        </div>
-
-                         <a  class="tool-cta" onclick="accessApi()" >Access API</a>
-                    </div>
-                </div>
-
-                <!-- NeuralFlow Audio API -->
-                <div class="col-lg-6 mb-4 revealUp">
-                    <div class="tool-card">
-                        <div class="tool-icon">
-                            <i class="bi bi-headphones"></i>
-                        </div>
-                        <h3 class="tool-title">Perspective Audio API</h3>
-                        <p class="tool-description">
-                            Comprehensive audio processing API featuring text-to-speech, speech-to-text, audio enhancement, and voice cloning capabilities with multiple provider support.
-                        </p>
-                        
-                        <div class="integration-badges">
-                            <span class="integration-badge">OpenAI TTS</span>
-                            <span class="integration-badge">ModelsLab</span>
-                            <span class="integration-badge">ElevenLabs</span>
-                        </div>
-
-                        <div class="api-section">
-                            <h6 class="api-title">
-                                <i class="bi bi-code-slash"></i>
-                                API Integration
-                            </h6>
-                            <div class="api-endpoint">
-                                POST https://api.perspective.ai/v1/audio/synthesize<br>
-                                Content-Type: application/json<br>
-                                Authorization: Bearer YOUR_API_KEY
-                            </div>
-                            <div class="api-feature">
-                                <i class="bi bi-check-circle"></i>
-                                Natural voice synthesis
-                            </div>
-                            <div class="api-feature">
-                                <i class="bi bi-check-circle"></i>
-                                Voice cloning and customization
-                            </div>
-                            <div class="api-feature">
-                                <i class="bi bi-check-circle"></i>
-                                Multiple audio formats support
-                            </div>
-                        </div>
-
-                         <a  class="tool-cta" onclick="accessApi()" >Access API</a>
-                    </div>
-                </div>
-
-                <!-- NeuralFlow Music API -->
-                <div class="col-lg-6 mb-4 revealUp">
-                    <div class="tool-card">
-                        <div class="tool-icon">
-                            <i class="bi bi-music-note"></i>
-                        </div>
-                        <h3 class="tool-title">Perspective Music API</h3>
-                        <p class="tool-description">
-                            AI-powered music generation API that creates original compositions, soundtracks, and audio content using advanced machine learning models and music theory.
-                        </p>
-                        
-                        <div class="integration-badges">
-                            <span class="integration-badge">ModelsLab Music</span>
-                            <span class="integration-badge">Mubert API</span>
-                            <span class="integration-badge">AIVA</span>
-                        </div>
-
-                        <div class="api-section">
-                            <h6 class="api-title">
-                                <i class="bi bi-code-slash"></i>
-                                API Integration
-                            </h6>
-                            <div class="api-endpoint">
-                                POST https://api.perspective.ai/v1/music/compose<br>
-                                Content-Type: application/json<br>
-                                Authorization: Bearer YOUR_API_KEY
-                            </div>
-                            <div class="api-feature">
-                                <i class="bi bi-check-circle"></i>
-                                Genre-specific composition
-                            </div>
-                            <div class="api-feature">
-                                <i class="bi bi-check-circle"></i>
-                                Royalty-free music generation
-                            </div>
-                            <div class="api-feature">
-                                <i class="bi bi-check-circle"></i>
-                                MIDI and WAV export options
-                            </div>
-                        </div>
-
-                         <a  class="tool-cta" onclick="accessApi()" >Access API</a>
-                    </div>
-                </div>
-
-                <!-- NeuralFlow Assistant API -->
-                <div class="col-lg-6 mb-4 revealUp">
-                    <div class="tool-card">
-                        <div class="tool-icon">
-                            <i class="bi bi-person-gear"></i>
-                        </div>
-                        <h3 class="tool-title">Perspective Assistant API</h3>
-                        <p class="tool-description">
-                            Advanced AI assistant API with task automation, scheduling, data analysis, and workflow management capabilities powered by multiple AI providers.
-                        </p>
-                        
-                        <div class="integration-badges">
-                            <span class="integration-badge">OpenAI Assistants</span>
-                            <span class="integration-badge">Google Assistant</span>
-                            <span class="integration-badge">Microsoft Cortana</span>
-                        </div>
-
-                        <div class="api-section">
-                            <h6 class="api-title">
-                                <i class="bi bi-code-slash"></i>
-                                API Integration
-                            </h6>
-                            <div class="api-endpoint">
-                                POST https://api.perspective.ai/v1/assistant/execute<br>
-                                Content-Type: application/json<br>
-                                Authorization: Bearer YOUR_API_KEY
-                            </div>
-                            <div class="api-feature">
-                                <i class="bi bi-check-circle"></i>
-                                Task automation and scheduling
-                            </div>
-                            <div class="api-feature">
-                                <i class="bi bi-check-circle"></i>
-                                Calendar and email management
-                            </div>
-                            <div class="api-feature">
-                                <i class="bi bi-check-circle"></i>
-                                Third-party integrations
-                            </div>
-                        </div>
-
-                       <a  class="tool-cta" onclick="accessApi()" >Access API</a>
-                    </div>
+        <div class="social-flip">
+            <div class="social-inner">
+                <!-- Front -->
+                <div class="social-front">SOCIAL</div>
+                <!-- Back -->
+                <div class="social-back">
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-whatsapp"></i></a>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- === API FEATURES === -->
-    <section class="section revealUp" style="background: rgba(26, 26, 46, 0.3);">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h2 class="section-title">Why Choose Our AI APIs?</h2>
-                    <p class="section-subtitle">
-                        Enterprise-grade APIs with robust features and seamless integration
-                    </p>
+        <!--curser-->
+
+        <!--curser-->
+
+        <div class="pointer" id="movee"></div>
+
+        <div class="ptblr" id="mov1"></div>
+
+        <!-- === PAGE HEADER === -->
+
+        <!-- === AI TOOLS SHOWCASE === -->
+        <section class="section">
+            <div class="container">
+                <div class="row animate__animated animate__backInDown">
+                    <div class="col-12 mt-4">
+                        <h2 class="section-title">Integrated AI Tools</h2>
+                        <p class="section-subtitle">
+                            Production-ready AI tools powered by
+                            industry-leading APIs and models
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Text API -->
+                    <div
+                        class="col-lg-6 mb-4 animate__animated animate__backInDown">
+                        <div class="tool-card">
+                            <div class="tool-icon">
+                                <i class="bi bi-file-text"></i>
+                            </div>
+                            <h3 class="tool-title">Perspective Text API</h3>
+                            <p class="tool-description">
+                                Advanced text generation API powered by multiple
+                                AI models including GPT-4, Gemini, and
+                                custom-trained models for diverse content
+                                creation needs.
+                            </p>
+
+                            <div class="integration-badges">
+                                <span class="integration-badge">OpenAI
+                                    GPT-4</span>
+                                <span class="integration-badge">Google
+                                    Gemini</span>
+                                <span class="integration-badge">FlowiseAI</span>
+                            </div>
+
+                            <div class="api-section">
+                                <h6 class="api-title">
+                                    <i class="bi bi-code-slash"></i>
+                                    API Integration
+                                </h6>
+                                <div class="api-endpoint">
+                                    POST
+                                    https://api.perspective.ai/v1/text/generate<br>
+                                    Content-Type: application/json<br>
+                                    Authorization: Bearer YOUR_API_KEY
+                                </div>
+                                <div class="api-feature">
+                                    <i class="bi bi-check-circle"></i>
+                                    Multiple output formats (JSON, XML, Plain
+                                    Text)
+                                </div>
+                                <div class="api-feature">
+                                    <i class="bi bi-check-circle"></i>
+                                    Custom tone and style parameters
+                                </div>
+                                <div class="api-feature">
+                                    <i class="bi bi-check-circle"></i>
+                                    Real-time streaming responses
+                                </div>
+                            </div>
+
+                            <a class="tool-cta" onclick="accessApi()">Access
+                                API</a>
+
+                        </div>
+                    </div>
+
+                    <!-- NeuralFlow Chat API -->
+                    <div
+                        class="col-lg-6 mb-4 animate__animated animate__backInDown">
+                        <div class="tool-card">
+                            <div class="tool-icon">
+                                <i class="bi bi-chat-dots"></i>
+                            </div>
+                            <h3 class="tool-title">Perspective Chat API</h3>
+                            <p class="tool-description">
+                                Intelligent conversational AI API with context
+                                awareness, multi-turn conversations, and
+                                advanced reasoning capabilities for chatbots and
+                                virtual assistants.
+                            </p>
+
+                            <div class="integration-badges">
+                                <span class="integration-badge">OpenAI
+                                    Assistants</span>
+                                <span class="integration-badge">Google
+                                    Gemini</span>
+                                <span class="integration-badge">Grok AI</span>
+                            </div>
+
+                            <div class="api-section">
+                                <h6 class="api-title">
+                                    <i class="bi bi-code-slash"></i>
+                                    API Integration
+                                </h6>
+                                <div class="api-endpoint">
+                                    POST
+                                    https://api.perspective.ai/v1/chat/complete<br>
+                                    Content-Type: application/json<br>
+                                    Authorization: Bearer YOUR_API_KEY
+                                </div>
+                                <div class="api-feature">
+                                    <i class="bi bi-check-circle"></i>
+                                    Context-aware conversations
+                                </div>
+                                <div class="api-feature">
+                                    <i class="bi bi-check-circle"></i>
+                                    Function calling capabilities
+                                </div>
+                                <div class="api-feature">
+                                    <i class="bi bi-check-circle"></i>
+                                    Webhook integrations
+                                </div>
+                            </div>
+
+                            <a class="tool-cta" onclick="accessApi()">Access
+                                API</a>
+                        </div>
+                    </div>
+
+                    <!-- NeuralFlow Vision API -->
+                    <div class="col-lg-6 mb-4 revealUp">
+                        <div class="tool-card">
+                            <div class="tool-icon">
+                                <i class="bi bi-camera-video"></i>
+                            </div>
+                            <h3 class="tool-title">Perspective Vision API</h3>
+                            <p class="tool-description">
+                                State-of-the-art video generation API using Luma
+                                Labs AI and other advanced models for creating
+                                professional videos from text descriptions and
+                                images.
+                            </p>
+
+                            <div class="integration-badges">
+                                <span class="integration-badge">Luma Labs
+                                    AI</span>
+                                <span class="integration-badge">Runway ML</span>
+                                <span class="integration-badge">Pika Labs</span>
+                            </div>
+
+                            <div class="api-section">
+                                <h6 class="api-title">
+                                    <i class="bi bi-code-slash"></i>
+                                    API Integration
+                                </h6>
+                                <div class="api-endpoint">
+                                    POST
+                                    https://api.perspective.ai/v1/video/generate<br>
+                                    Content-Type: multipart/form-data<br>
+                                    Authorization: Bearer YOUR_API_KEY
+                                </div>
+                                <div class="api-feature">
+                                    <i class="bi bi-check-circle"></i>
+                                    Text-to-video generation
+                                </div>
+                                <div class="api-feature">
+                                    <i class="bi bi-check-circle"></i>
+                                    Image-to-video conversion
+                                </div>
+                                <div class="api-feature">
+                                    <i class="bi bi-check-circle"></i>
+                                    Custom resolution and duration
+                                </div>
+                            </div>
+
+                            <a class="tool-cta" onclick="accessApi()">Access
+                                API</a>
+                        </div>
+                    </div>
+
+                    <!-- NeuralFlow Audio API -->
+                    <div class="col-lg-6 mb-4 revealUp">
+                        <div class="tool-card">
+                            <div class="tool-icon">
+                                <i class="bi bi-headphones"></i>
+                            </div>
+                            <h3 class="tool-title">Perspective Audio API</h3>
+                            <p class="tool-description">
+                                Comprehensive audio processing API featuring
+                                text-to-speech, speech-to-text, audio
+                                enhancement, and voice cloning capabilities with
+                                multiple provider support.
+                            </p>
+
+                            <div class="integration-badges">
+                                <span class="integration-badge">OpenAI
+                                    TTS</span>
+                                <span class="integration-badge">ModelsLab</span>
+                                <span
+                                    class="integration-badge">ElevenLabs</span>
+                            </div>
+
+                            <div class="api-section">
+                                <h6 class="api-title">
+                                    <i class="bi bi-code-slash"></i>
+                                    API Integration
+                                </h6>
+                                <div class="api-endpoint">
+                                    POST
+                                    https://api.perspective.ai/v1/audio/synthesize<br>
+                                    Content-Type: application/json<br>
+                                    Authorization: Bearer YOUR_API_KEY
+                                </div>
+                                <div class="api-feature">
+                                    <i class="bi bi-check-circle"></i>
+                                    Natural voice synthesis
+                                </div>
+                                <div class="api-feature">
+                                    <i class="bi bi-check-circle"></i>
+                                    Voice cloning and customization
+                                </div>
+                                <div class="api-feature">
+                                    <i class="bi bi-check-circle"></i>
+                                    Multiple audio formats support
+                                </div>
+                            </div>
+
+                            <a class="tool-cta" onclick="accessApi()">Access
+                                API</a>
+                        </div>
+                    </div>
+
+                    <!-- NeuralFlow Music API -->
+                    <div class="col-lg-6 mb-4 revealUp">
+                        <div class="tool-card">
+                            <div class="tool-icon">
+                                <i class="bi bi-music-note"></i>
+                            </div>
+                            <h3 class="tool-title">Perspective Music API</h3>
+                            <p class="tool-description">
+                                AI-powered music generation API that creates
+                                original compositions, soundtracks, and audio
+                                content using advanced machine learning models
+                                and music theory.
+                            </p>
+
+                            <div class="integration-badges">
+                                <span class="integration-badge">ModelsLab
+                                    Music</span>
+                                <span class="integration-badge">Mubert
+                                    API</span>
+                                <span class="integration-badge">AIVA</span>
+                            </div>
+
+                            <div class="api-section">
+                                <h6 class="api-title">
+                                    <i class="bi bi-code-slash"></i>
+                                    API Integration
+                                </h6>
+                                <div class="api-endpoint">
+                                    POST
+                                    https://api.perspective.ai/v1/music/compose<br>
+                                    Content-Type: application/json<br>
+                                    Authorization: Bearer YOUR_API_KEY
+                                </div>
+                                <div class="api-feature">
+                                    <i class="bi bi-check-circle"></i>
+                                    Genre-specific composition
+                                </div>
+                                <div class="api-feature">
+                                    <i class="bi bi-check-circle"></i>
+                                    Royalty-free music generation
+                                </div>
+                                <div class="api-feature">
+                                    <i class="bi bi-check-circle"></i>
+                                    MIDI and WAV export options
+                                </div>
+                            </div>
+
+                            <a class="tool-cta" onclick="accessApi()">Access
+                                API</a>
+                        </div>
+                    </div>
+
+                    <!-- NeuralFlow Assistant API -->
+                    <div class="col-lg-6 mb-4 revealUp">
+                        <div class="tool-card">
+                            <div class="tool-icon">
+                                <i class="bi bi-person-gear"></i>
+                            </div>
+                            <h3 class="tool-title">Perspective Assistant
+                                API</h3>
+                            <p class="tool-description">
+                                Advanced AI assistant API with task automation,
+                                scheduling, data analysis, and workflow
+                                management capabilities powered by multiple AI
+                                providers.
+                            </p>
+
+                            <div class="integration-badges">
+                                <span class="integration-badge">OpenAI
+                                    Assistants</span>
+                                <span class="integration-badge">Google
+                                    Assistant</span>
+                                <span class="integration-badge">Microsoft
+                                    Cortana</span>
+                            </div>
+
+                            <div class="api-section">
+                                <h6 class="api-title">
+                                    <i class="bi bi-code-slash"></i>
+                                    API Integration
+                                </h6>
+                                <div class="api-endpoint">
+                                    POST
+                                    https://api.perspective.ai/v1/assistant/execute<br>
+                                    Content-Type: application/json<br>
+                                    Authorization: Bearer YOUR_API_KEY
+                                </div>
+                                <div class="api-feature">
+                                    <i class="bi bi-check-circle"></i>
+                                    Task automation and scheduling
+                                </div>
+                                <div class="api-feature">
+                                    <i class="bi bi-check-circle"></i>
+                                    Calendar and email management
+                                </div>
+                                <div class="api-feature">
+                                    <i class="bi bi-check-circle"></i>
+                                    Third-party integrations
+                                </div>
+                            </div>
+
+                            <a class="tool-cta" onclick="accessApi()">Access
+                                API</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="tool-card">
-                        <div class="tool-icon" style="width: 60px; height: 60px; font-size: 1.5rem;">
-                            <i class="bi bi-shield-check"></i>
-                        </div>
-                        <h4 style="color: var(--text-white); margin-bottom: 1rem;">Enterprise Security</h4>
-                        <p style="color: var(--text-gray);">
-                            Bank-level encryption, SOC 2 compliance, and advanced security protocols to protect your data and applications.
+        </section>
+
+        <!-- === API FEATURES === -->
+        <section class="section revealUp"
+            style="background: rgba(26, 26, 46, 0.3);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="section-title">Why Choose Our AI APIs?</h2>
+                        <p class="section-subtitle">
+                            Enterprise-grade APIs with robust features and
+                            seamless integration
                         </p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="tool-card">
-                        <div class="tool-icon" style="width: 60px; height: 60px; font-size: 1.5rem;">
-                            <i class="bi bi-speedometer2"></i>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="tool-card">
+                            <div class="tool-icon"
+                                style="width: 60px; height: 60px; font-size: 1.5rem;">
+                                <i class="bi bi-shield-check"></i>
+                            </div>
+                            <h4
+                                style="color: var(--text-white); margin-bottom: 1rem;">Enterprise
+                                Security</h4>
+                            <p style="color: var(--text-gray);">
+                                Bank-level encryption, SOC 2 compliance, and
+                                advanced security protocols to protect your data
+                                and applications.
+                            </p>
                         </div>
-                        <h4 style="color: var(--text-white); margin-bottom: 1rem;">High Performance</h4>
-                        <p style="color: var(--text-gray);">
-                            Low-latency responses, 99.9% uptime SLA, and global CDN distribution for optimal performance worldwide.
-                        </p>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="tool-card">
-                        <div class="tool-icon" style="width: 60px; height: 60px; font-size: 1.5rem;">
-                            <i class="bi bi-arrows-fullscreen"></i>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="tool-card">
+                            <div class="tool-icon"
+                                style="width: 60px; height: 60px; font-size: 1.5rem;">
+                                <i class="bi bi-speedometer2"></i>
+                            </div>
+                            <h4
+                                style="color: var(--text-white); margin-bottom: 1rem;">High
+                                Performance</h4>
+                            <p style="color: var(--text-gray);">
+                                Low-latency responses, 99.9% uptime SLA, and
+                                global CDN distribution for optimal performance
+                                worldwide.
+                            </p>
                         </div>
-                        <h4 style="color: var(--text-white); margin-bottom: 1rem;">Scalable Infrastructure</h4>
-                        <p style="color: var(--text-gray);">
-                            Auto-scaling capabilities, load balancing, and flexible pricing to grow with your business needs.
-                        </p>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="tool-card">
+                            <div class="tool-icon"
+                                style="width: 60px; height: 60px; font-size: 1.5rem;">
+                                <i class="bi bi-arrows-fullscreen"></i>
+                            </div>
+                            <h4
+                                style="color: var(--text-white); margin-bottom: 1rem;">Scalable
+                                Infrastructure</h4>
+                            <p style="color: var(--text-gray);">
+                                Auto-scaling capabilities, load balancing, and
+                                flexible pricing to grow with your business
+                                needs.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- === FOOTER === -->
-     <footer class="footer revealUp">
+        <!-- === FOOTER === -->
+        <footer class="footer revealUp">
             <div class="container">
                 <div class="footer-links">
                     <a href="/index.html">Home</a>
@@ -548,11 +610,12 @@
             </div>
         </footer>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/script.js/toggle.js"></script>
-    <script src="/script.js/feedack.js"></script>
-     <script>
+        <!-- Bootstrap JS -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="/script.js/toggle.js"></script>
+        <script src="/script.js/feedack.js"></script>
+        <script>
       const toggle = document.getElementById('chatbotToggle');
 const windowEl = document.getElementById('chatbotWindow');
 const closeBtn = document.getElementById('chatbotClose');
@@ -596,10 +659,12 @@ sendBtn.addEventListener('click', () => {
 
     </script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-     <!--Scroll animation-->
-    <script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+        <!--Scroll animation-->
+        <script>
       // Load GSAP + ScrollTrigger
       gsap.registerPlugin(ScrollTrigger);
 
@@ -625,8 +690,8 @@ sendBtn.addEventListener('click', () => {
         });
       });
     </script>
-    <!--Scroll animation end-->
-<script src="/script.js/cursor.js"></script>
-<script src="/script.js/Access_api.js"></script>
-</body>
+        <!--Scroll animation end-->
+        <script src="/script.js/cursor.js"></script>
+        <script src="/script.js/Access_api.js"></script>
+    </body>
 </html>
