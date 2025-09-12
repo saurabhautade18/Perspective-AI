@@ -75,3 +75,23 @@ gsap.utils.toArray(".pricing-card").forEach((card, i) => {
     }
   });
 });
+
+
+// FAQ items animation
+gsap.utils.toArray(".faq-item").forEach((item) => {
+  gsap.fromTo(
+    item,
+    { opacity: 0, y: 100 }, // start state (hidden + pushed down)
+    {
+      opacity: 1,
+      y: 0, // end state (visible + natural position)
+      duration: 2,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: item,
+        start: "top 85%",
+        toggleActions: "play none none reverse",
+      },
+    }
+  );
+});
