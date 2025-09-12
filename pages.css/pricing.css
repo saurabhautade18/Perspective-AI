@@ -480,7 +480,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgb(23,23,44);
             padding: 0.5rem;
             border-radius: 50px;
             width: max-content;
