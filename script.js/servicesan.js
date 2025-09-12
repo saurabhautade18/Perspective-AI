@@ -1,22 +1,18 @@
 gsap.from(".section-title", {
-    opacity: 0,
-    y: -40,
-    duration: 2.5,
-    ease: "power3.out",
-    stagger: 0.2
-  });
+  opacity: 0,
+  y: -40,
+  duration: 2.5,
+  ease: "power3.out",
+  stagger: 0.2,
+});
 
-  gsap.from(".section-subtitle", {
-    opacity: 0,
-    y: 40,
-    duration: 2.5,
-    delay: 0.5,
-    ease: "power3.out"
-  });
-
-
-
-
+gsap.from(".section-subtitle", {
+  opacity: 0,
+  y: 40,
+  duration: 2.5,
+  delay: 0.5,
+  ease: "power3.out",
+});
 
 // Service cards staggered animation
 gsap.utils.toArray(".service-card").forEach((card, i) => {
@@ -29,12 +25,11 @@ gsap.utils.toArray(".service-card").forEach((card, i) => {
     scrollTrigger: {
       trigger: card,
       start: "top 85%",
-      toggleActions: "play none none reverse"
+      toggleActions: "play none none reverse",
     },
-    delay: i * 0.2 // each card appears later than previous
+    delay: i * 0.2, // each card appears later than previous
   });
 });
-
 
 // FAQ items animation
 gsap.utils.toArray(".faq-item").forEach((item) => {
@@ -43,25 +38,24 @@ gsap.utils.toArray(".faq-item").forEach((item) => {
     { opacity: 0, y: 60 }, // start state (hidden + pushed down)
     {
       opacity: 1,
-      y: 0,                 // end state (visible + natural position)
+      y: 0, // end state (visible + natural position)
       duration: 1.7,
       ease: "power2.out",
       scrollTrigger: {
         trigger: item,
         start: "top 90%",
-        toggleActions: "play none none reverse"
-      }
+        toggleActions: "play none none reverse",
+      },
     }
   );
 });
 
-
 // Hover zoom for service cards
 document.querySelectorAll(".service-card").forEach((card) => {
   card.addEventListener("mouseenter", () => {
-    gsap.to(card, { scale: 1.05, duration: 0.3, ease: "power2.out" });
+    gsap.to(card, { scale: 1.02, duration: 0.1, ease: "linear" });
   });
   card.addEventListener("mouseleave", () => {
-    gsap.to(card, { scale: 1, duration: 0.3, ease: "power2.inOut" });
+    gsap.to(card, { scale: 1, duration: 0.1, ease: "linear" });
   });
 });
